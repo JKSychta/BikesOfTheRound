@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6ca6kr81isqy"]
+
+[ext_resource type="Script" path="res://Scenes/Bullet/bullet.gd" id="1_7xv1h"]
+[ext_resource type="Texture2D" uid="uid://pduehhn6i0wn" path="res://Art/Player-projectile v2.svg" id="2_j8etb"]
+[ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="3_npj6v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_byt17"]
+radius = 2.03333
+height = 8.4
+
+[node name="Bullet" type="CharacterBody2D" groups=["player_attack"]]
+visibility_layer = 7
+rotation = -1.57079
+scale = Vector2(30, 30)
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_7xv1h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.129789, 0.13)
+texture = ExtResource("2_j8etb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rotation = -1.57081
+scale = Vector2(0.20842, 0.413947)
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("3_npj6v")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="HitboxShape" type="CollisionShape2D" parent="HitBoxComponent"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_byt17")
+debug_color = Color(1, 0, 0.141176, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.683368, 0.683368)
+shape = SubResource("CapsuleShape2D_byt17")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="HitBoxComponent" to="." method="_on_hit_box_component_area_entered"]
+[connection signal="body_entered" from="HitBoxComponent" to="." method="_on_hit_box_component_body_entered"]

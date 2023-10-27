@@ -1,0 +1,412 @@
+[gd_scene load_steps=72 format=3 uid="uid://dtvqyc34g0n52"]
+
+[ext_resource type="Script" path="res://Scenes/Player/Player_v2.gd" id="1_ewvlo"]
+[ext_resource type="Texture2D" uid="uid://c6lfktvomhrcb" path="res://Art/Arrow-Placeholder.svg" id="2_vxfra"]
+[ext_resource type="Texture2D" uid="uid://cph1d7bmjnmim" path="res://Art/PlayerCarSprites/Civic/Sheet/Green_CIVIC_CLEAN_8D_000-sheet.png" id="3_aiwbe"]
+[ext_resource type="Texture2D" uid="uid://cihhwrn41x082" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_000.png" id="4_htffl"]
+[ext_resource type="Texture2D" uid="uid://cvfjaw2ta63f6" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_001.png" id="5_jpp2b"]
+[ext_resource type="Texture2D" uid="uid://ctmv4ms8plkfm" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_002.png" id="6_xas33"]
+[ext_resource type="Texture2D" uid="uid://5feq2suiceyn" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_003.png" id="7_ao8v0"]
+[ext_resource type="Texture2D" uid="uid://ce2j1g3bgaamx" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_004.png" id="8_jycym"]
+[ext_resource type="Texture2D" uid="uid://brgklnfi3qrw5" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_005.png" id="9_uymov"]
+[ext_resource type="Texture2D" uid="uid://75hcf0se1ktf" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_006.png" id="10_51jdb"]
+[ext_resource type="Texture2D" uid="uid://d2cfo0smuby7x" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_007.png" id="11_ir4vc"]
+[ext_resource type="Texture2D" uid="uid://cycuhytei5s0c" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_008.png" id="12_6jgvw"]
+[ext_resource type="Texture2D" uid="uid://bf20q4lnfyx2c" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_009.png" id="13_fnjyi"]
+[ext_resource type="Texture2D" uid="uid://co62o21tv6wmq" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_010.png" id="14_44l26"]
+[ext_resource type="Texture2D" uid="uid://b3bbpd2ydt3yt" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_011.png" id="15_jv33j"]
+[ext_resource type="Texture2D" uid="uid://ceknjk13bfwyq" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_012.png" id="16_6tn4x"]
+[ext_resource type="Texture2D" uid="uid://bn7npegvls15" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_013.png" id="17_gvvxe"]
+[ext_resource type="Texture2D" uid="uid://bawkvyo4qet81" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_014.png" id="18_rcadb"]
+[ext_resource type="Texture2D" uid="uid://cyeprdx0nvv8u" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_015.png" id="19_c177p"]
+[ext_resource type="Texture2D" uid="uid://7myo5no2yt8g" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_016.png" id="20_7y1p5"]
+[ext_resource type="Texture2D" uid="uid://r6il8e21xf4o" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_017.png" id="21_ecikq"]
+[ext_resource type="Texture2D" uid="uid://bx3x028hwteqd" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_018.png" id="22_37g5t"]
+[ext_resource type="Texture2D" uid="uid://blnfjh3vd7o5j" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_019.png" id="23_np7vr"]
+[ext_resource type="Texture2D" uid="uid://f84ebl7uffiw" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_020.png" id="24_ewvwf"]
+[ext_resource type="Texture2D" uid="uid://baanjyy56lk17" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_021.png" id="25_bfvvo"]
+[ext_resource type="Texture2D" uid="uid://c14e1tyxp5sql" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_022.png" id="26_ml2jb"]
+[ext_resource type="Texture2D" uid="uid://dyowniw104246" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_023.png" id="27_3x16n"]
+[ext_resource type="Texture2D" uid="uid://b5fe18yyslhyh" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_024.png" id="28_53yuh"]
+[ext_resource type="Texture2D" uid="uid://bhqx2xal16yjm" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_025.png" id="29_frqch"]
+[ext_resource type="Texture2D" uid="uid://bnbjmhn0frbjy" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_026.png" id="30_jekt8"]
+[ext_resource type="Texture2D" uid="uid://rv6bym0b40m8" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_027.png" id="31_utj05"]
+[ext_resource type="Texture2D" uid="uid://cw43qh7dc5amc" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_028.png" id="32_1ul8x"]
+[ext_resource type="Texture2D" uid="uid://cqsley2gwslan" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_029.png" id="33_8mxcn"]
+[ext_resource type="Texture2D" uid="uid://blkryprlfmybr" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_030.png" id="34_mvqlk"]
+[ext_resource type="Texture2D" uid="uid://bxpvgapfptcbs" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_031.png" id="35_m16c7"]
+[ext_resource type="Texture2D" uid="uid://bab78c5ihwux4" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_032.png" id="36_0dy7w"]
+[ext_resource type="Texture2D" uid="uid://lcojissc3304" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_033.png" id="37_rgapq"]
+[ext_resource type="Texture2D" uid="uid://dqywswm7n8hvw" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_034.png" id="38_pi1bs"]
+[ext_resource type="Texture2D" uid="uid://chx0hdh2kuqtl" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_035.png" id="39_ehx61"]
+[ext_resource type="Texture2D" uid="uid://buwqecn74a7i8" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_036.png" id="40_o3nux"]
+[ext_resource type="Texture2D" uid="uid://bopwn2v4lja7b" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_037.png" id="41_vd6bl"]
+[ext_resource type="Texture2D" uid="uid://himvrib1ml4y" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_038.png" id="42_o0q2e"]
+[ext_resource type="Texture2D" uid="uid://dcq3vgguthmyf" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_039.png" id="43_fod5f"]
+[ext_resource type="Texture2D" uid="uid://dts14o4u2axjx" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_040.png" id="44_5qu0y"]
+[ext_resource type="Texture2D" uid="uid://bd2hvtrngid0e" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_041.png" id="45_vyiib"]
+[ext_resource type="Texture2D" uid="uid://cnawtjffekqic" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_042.png" id="46_hrtop"]
+[ext_resource type="Texture2D" uid="uid://ciu0bku7ec2h0" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_043.png" id="47_ew52h"]
+[ext_resource type="Texture2D" uid="uid://cgc10a65st7xg" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_044.png" id="48_vevwv"]
+[ext_resource type="Texture2D" uid="uid://dgly64o058d2o" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_045.png" id="49_jb634"]
+[ext_resource type="Texture2D" uid="uid://b6lyntgrnqwgp" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_046.png" id="50_1vhx3"]
+[ext_resource type="Texture2D" uid="uid://qokj46bbd7fr" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_047.png" id="51_4kc1v"]
+[ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/health_component.tscn" id="52_jy77m"]
+[ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="53_waes6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dde85"]
+radius = 4.34492
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgsta"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqj0l"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3c6e"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykght"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6smhl"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar16f"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfsng"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru1yc"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk87w"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r827r"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa8ua"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rpuj"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlo10"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocmu5"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjk6k"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jasex"]
+atlas = ExtResource("3_aiwbe")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vl5h0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgsta")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqj0l")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3c6e")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykght")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6smhl")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar16f")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfsng")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru1yc")
+}],
+"loop": true,
+"name": &"7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk87w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r827r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa8ua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rpuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlo10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocmu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjk6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jasex")
+}],
+"loop": true,
+"name": &"8dirtest",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_htffl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jpp2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xas33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ao8v0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jycym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uymov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_51jdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ir4vc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6jgvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fnjyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_44l26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jv33j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6tn4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_gvvxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_rcadb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_c177p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7y1p5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ecikq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_37g5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_np7vr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ewvwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_bfvvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ml2jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_3x16n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_53yuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_frqch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_jekt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_utj05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_1ul8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_8mxcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_mvqlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_m16c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_0dy7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_rgapq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_pi1bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ehx61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_o3nux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_vd6bl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_o0q2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_fod5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_5qu0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_vyiib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_hrtop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_ew52h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_vevwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_jb634")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_1vhx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_4kc1v")
+}],
+"loop": true,
+"name": &"big_sprite",
+"speed": 0.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+rotation = 10.9956
+collision_layer = 5
+collision_mask = 2
+script = ExtResource("1_ewvlo")
+metadata/_edit_vertical_guides_ = [-8.0, 8.0, 26.0, -30.0]
+metadata/_edit_horizontal_guides_ = [-8.0, 8.0, -15.0, 22.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 7
+z_index = 1
+position = Vector2(-0.000142097, 0.000142097)
+rotation = 1.54565
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vxfra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.000139713, -0.0132847)
+scale = Vector2(1.62787, 1.6063)
+shape = SubResource("CircleShape2D_dde85")
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(14.6763, -0.000112057)
+rotation = 3.14828
+scale = Vector2(-0.883376, -2.94882)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_vl5h0")
+animation = &"big_sprite"
+frame_progress = 0.46848
+
+[node name="HealthComponent" parent="." instance=ExtResource("52_jy77m")]
+MAX_HEALTH = 3.0
+
+[node name="HitBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("53_waes6")]
+collision_mask = 2
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(-0.000139713, -0.0132847)
+scale = Vector2(1.62787, 1.6063)
+shape = SubResource("CircleShape2D_dde85")
+debug_color = Color(0.996078, 0, 0.192157, 0.419608)
