@@ -26,7 +26,6 @@ func spawn(amount = 1):
 		var e = Enemy.instantiate()
 		add_child(e)
 		e.position += Vector2(randomSpawnPoint(), randomSpawnPoint())
-		print(e.position)
 	alive_enemies_count = amount
 
 func randomSpawnPoint():

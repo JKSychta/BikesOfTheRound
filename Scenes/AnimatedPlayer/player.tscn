@@ -389,7 +389,7 @@ shape = SubResource("CircleShape2D_dde85")
 
 [node name="BulletSpawn" type="Marker2D" parent="."]
 position = Vector2(14.6763, -0.000112057)
-rotation = 3.14828
+rotation = 1.5708
 scale = Vector2(-0.883376, -2.94882)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -399,7 +399,6 @@ animation = &"big_sprite"
 frame_progress = 0.46848
 
 [node name="HealthComponent" parent="." instance=ExtResource("52_jy77m")]
-MAX_HEALTH = 3.0
 
 [node name="HitBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("53_waes6")]
 collision_mask = 2

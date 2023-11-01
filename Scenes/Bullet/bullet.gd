@@ -7,7 +7,7 @@ var speed = 750
 
 # Called every frame. 'delta' is the elapsed time since the  previous frame.
 func _physics_process(delta):
-	position += transform.x * speed * delta
+	position += transform.y * speed * delta
 
 #func _on_bullet_body_entered(body):
 #	queue_free()

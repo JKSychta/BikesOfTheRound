@@ -85,6 +85,7 @@ func calculate_steering(delta):
 func shoot():
 	var b = Bullet.instantiate() #creates an instance of a Bullet Scene
 	owner.add_child(b) #Adds it to the player
+#	b.angle = deg_to_rad(0)
 	b.transform = muzzle.global_transform #Shoots it from the BulletSpawn Marker2D
 
 #func animate_sprite():
