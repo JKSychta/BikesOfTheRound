@@ -13,6 +13,7 @@ var wheel_base = 32 # 16 is the height of our current sprite
 @export var slip_speed = 400
 @export var traction_fast = 0.1
 @export var traction_slow = 0.7
+@export var fire_rate: float = 0.5
 var Bullet: PackedScene = preload("res://Scenes/Bullet/bullet.tscn")
 @onready var muzzle = get_node("BulletSpawn")
 #predefined variables
@@ -21,7 +22,13 @@ var steer_angle
 var friction = -0.9
 var drag = -0.0015
 var angle
+var shot_ready :bool = true
 
+
+
+func _ready():
+	$FireRate.wait_time = fire_rate
+	pass
 
 #called every phisics engine tick
 func _physics_process(delta):
@@ -57,7 +64,7 @@ func get_input():
 		acceleration = transform.x * braking
 	if Input.is_action_pressed("accelerate"):
 		acceleration = transform.x * speed
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot"):
 		shoot()
 
 
@@ -83,10 +90,17 @@ func calculate_steering(delta):
 
 #Shooting for the player
 func shoot():
-	var b = Bullet.instantiate() #creates an instance of a Bullet Scene
-	owner.add_child(b) #Adds it to the player
-#	b.angle = deg_to_rad(0)
-	b.transform = muzzle.global_transform #Shoots it from the BulletSpawn Marker2D
+	if shot_ready:
+		var b = Bullet.instantiate() #creates an instance of a Bullet Scene
+		owner.add_child(b) #Adds it to the player
+	#	b.angle = deg_to_rad(0)
+		b.transform = muzzle.global_transform #Shoots it from the BulletSpawn Marker2D
+		shot_ready = false
+		$FireRate.start()
+
+func _on_fire_rate_timeout():
+	shot_ready = true
+
 
 #func animate_sprite():
 #	var car_direction =

@@ -409,3 +409,9 @@ position = Vector2(-0.000139713, -0.0132847)
 scale = Vector2(1.62787, 1.6063)
 shape = SubResource("CircleShape2D_dde85")
 debug_color = Color(0.996078, 0, 0.192157, 0.419608)
+
+[node name="FireRate" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

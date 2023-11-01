@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var attack_damage = 3
 #@export var knockback_force = 10 
-var speed = 750
+var speed = 400
 
 
 # Called every frame. 'delta' is the elapsed time since the  previous frame.
