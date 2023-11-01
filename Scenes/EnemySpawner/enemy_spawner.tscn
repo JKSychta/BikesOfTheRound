@@ -10,7 +10,7 @@ radius = 244.248
 line_spacing = 10.0
 
 [node name="Enemy_Spawner" type="Node2D"]
-position = Vector2(304, 263)
+position = Vector2(0, -1)
 script = ExtResource("1_6e184")
 
 [node name="Area2D" type="Area2D" parent="."]
