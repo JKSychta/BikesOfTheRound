@@ -23,6 +23,7 @@ var friction = -0.9
 var drag = -0.0015
 var angle
 var shot_ready :bool = true
+var holding_delivery = false
 
 
 

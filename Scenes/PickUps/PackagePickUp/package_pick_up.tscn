@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc2pdxle0m8y6"]
+
+[ext_resource type="Texture2D" uid="uid://c3mvwis843qpq" path="res://Art/Pick-ups/package_sprite.png" id="1_3mxfh"]
+
+[node name="package_pick_up" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3mxfh")
