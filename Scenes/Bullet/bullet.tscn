@@ -13,7 +13,7 @@ visibility_layer = 7
 rotation = -1.57079
 scale = Vector2(30, 30)
 collision_layer = 4
-collision_mask = 6
+collision_mask = 22
 slide_on_ceiling = false
 script = ExtResource("1_7xv1h")
 

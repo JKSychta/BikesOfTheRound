@@ -12,8 +12,9 @@ func  _process(delta):
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 	if player:
+#		var player_pos = player.position
 		look_at(player.position)
-		velocity = position.direction_to(player.position) * move_speed
+		velocity = global_position.direction_to(player.global_position) * move_speed
 	move_and_slide()
 
 func _on_detection_radius_body_entered(body):

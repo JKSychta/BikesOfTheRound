@@ -13,5 +13,7 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("package_delivered"):
-		body.package_delivered()
+		if body.package_delivered():
+			get_tree().call_group("DeliverySystem", "spawn_package_pick_up")
+			emit_signal("package_delivered")
 

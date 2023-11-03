@@ -106,12 +106,14 @@ func package_picked_up():
 	holding_delivery = true
 	print("AQUIRED PACKAGE")
 	
-func package_delivered():
+func package_delivered() -> bool:
 	if holding_delivery:
 		holding_delivery = false
 		Global.score += 1000
 		print("DELIVERED PACKAGE")
-	
+		return true
+	else:
+		return false
 
 
 #func animate_sprite():
