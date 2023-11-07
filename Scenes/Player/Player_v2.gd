@@ -17,13 +17,13 @@ var wheel_base = 32 # 16 is the height of our current sprite
 var Bullet: PackedScene = preload("res://Scenes/Bullet/bullet.tscn")
 @onready var muzzle = get_node("BulletSpawn")
 #predefined variables
-var acceleration = Vector2.ZERO
+var acceleration := Vector2.ZERO
 var steer_angle
-var friction = -0.9
-var drag = -0.0015
+var friction: float = -0.9
+var drag: float = -0.0015
 var angle
 var shot_ready :bool = true
-
+var holding_delivery:bool = false
 
 
 func _ready():
@@ -100,6 +100,19 @@ func shoot():
 
 func _on_fire_rate_timeout():
 	shot_ready = true
+
+func package_picked_up():
+	holding_delivery = true
+	print("AQUIRED PACKAGE")
+	
+func package_delivered() -> bool:
+	if holding_delivery:
+		holding_delivery = false
+		Global.score += 1000
+		print("DELIVERED PACKAGE")
+		return true
+	else:
+		return false
 
 
 #func animate_sprite():
