@@ -26,7 +26,6 @@ var shot_ready :bool = true
 var holding_delivery:bool = false
 
 
-
 func _ready():
 	$FireRate.wait_time = fire_rate
 	pass
