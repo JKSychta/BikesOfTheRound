@@ -10,6 +10,7 @@ size = Vector2(64, 62)
 script = ExtResource("1_gnn5q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
 texture = ExtResource("2_8h30r")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -17,6 +18,7 @@ collision_layer = 8
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("RectangleShape2D_dlfax")
 debug_color = Color(0, 0.647059, 0.192157, 0.419608)
 

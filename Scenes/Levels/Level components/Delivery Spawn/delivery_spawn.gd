@@ -1,6 +1,8 @@
 extends Node2D
 
-var package_pick_up: PackedScene = preload("res://Scenes/PickUps/PackagePickUp/package_pick_up.tscn")
+signal deliveryPointSelect
+
+@onready var packagePickUp: PackedScene = preload("res://Scenes/PickUps/PackagePickUp/package_pick_up.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +14,10 @@ func _process(delta):
 	pass
 
 func spawn_package_pick_up():
-	var package = package_pick_up.instantiate()
+	var package = packagePickUp.instantiate()
+	package.package_picked_up.connect(on_package_picked_up)
 	add_child(package)
 	
+func on_package_picked_up():
+	emit_signal("deliveryPointSelect")
 
