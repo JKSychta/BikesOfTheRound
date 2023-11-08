@@ -22,4 +22,5 @@ position = Vector2(-0.125, 0)
 shape = SubResource("RectangleShape2D_fj2f5")
 debug_color = Color(0.160784, 0.709804, 0, 0.419608)
 
+[connection signal="package_picked_up" from="." to="." method="_on_package_picked_up"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=72 format=3 uid="uid://dtvqyc34g0n52"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player_v2.gd" id="1_ewvlo"]
-[ext_resource type="Texture2D" uid="uid://c6lfktvomhrcb" path="res://Art/Arrow-Placeholder.svg" id="2_vxfra"]
+[ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/New assets/Car/Player_blue (16 x 16).png" id="2_fgpf3"]
 [ext_resource type="Texture2D" uid="uid://cph1d7bmjnmim" path="res://Art/PlayerCarSprites/Civic/Sheet/Green_CIVIC_CLEAN_8D_000-sheet.png" id="3_aiwbe"]
 [ext_resource type="Texture2D" uid="uid://cihhwrn41x082" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_000.png" id="4_htffl"]
 [ext_resource type="Texture2D" uid="uid://cvfjaw2ta63f6" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_001.png" id="5_jpp2b"]
@@ -379,9 +379,11 @@ metadata/_edit_horizontal_guides_ = [-8.0, 8.0, -15.0, 22.0]
 light_mask = 7
 z_index = 1
 position = Vector2(-0.000142097, 0.000142097)
-rotation = 1.54565
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_vxfra")
+rotation = 1.57079
+scale = Vector2(0.785107, 0.785107)
+texture = ExtResource("2_fgpf3")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.000139713, -0.0132847)

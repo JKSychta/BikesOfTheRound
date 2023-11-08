@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	emit_signal("package_picked_up") # Replace with function body.
 	if body.has_method("package_picked_up"):
+		emit_signal("package_picked_up")
 		body.package_picked_up()
 		queue_free()
