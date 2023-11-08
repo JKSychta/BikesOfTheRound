@@ -545,7 +545,7 @@ layer_0/tile_data = PackedInt32Array(458756, 589824, 4, 524292, 589824, 4, 58982
 [node name="Player" parent="Node2D" instance=ExtResource("3_6ybb7")]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(467, 138)
+position = Vector2(-477, -71)
 rotation = -1.57077
 collision_mask = 10
 metadata/_edit_vertical_guides_ = [-8.0, 8.0]
@@ -553,8 +553,8 @@ metadata/_edit_horizontal_guides_ = [-8.0, 8.0]
 
 [node name="Camera2D" type="Camera2D" parent="Node2D/Player"]
 zoom = Vector2(2, 2)
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Node2D/Player/Camera2D"]
 
