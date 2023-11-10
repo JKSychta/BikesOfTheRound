@@ -566,6 +566,10 @@ text = "0"
 script = ExtResource("5_gt37r")
 
 [node name="User Interface" parent="Node2D/Player/Camera2D/CanvasLayer" instance=ExtResource("2_k1lms")]
+offset_left = 539.0
+offset_top = -4.76837e-07
+offset_right = -613.0
+offset_bottom = -648.0
 
 [node name="Enemy_Spawner" parent="." instance=ExtResource("8_2371h")]
 position = Vector2(64, 275)
@@ -592,3 +596,5 @@ position = Vector2(687, -32)
 position = Vector2(398, -32)
 
 [connection signal="deliveryPointSelect" from="Delivery_System/delivery_spawn" to="Delivery_System" method="_on_delivery_spawn_delivery_point_select"]
+[connection signal="navigationTarget" from="Delivery_System/delivery_spawn" to="Node2D/Player/Camera2D/CanvasLayer/User Interface" method="_on_delivery_spawn_navigation_target"]
+[connection signal="navigationTarget" from="Delivery_System/delivery_point" to="Node2D/Player/Camera2D/CanvasLayer/User Interface" method="_on_delivery_point_navigation_target"]

@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://2qac47tfb0q3"]
+[gd_scene load_steps=6 format=3 uid="uid://2qac47tfb0q3"]
 
+[ext_resource type="Script" path="res://Scenes/UI/user_interface.gd" id="1_0an6c"]
 [ext_resource type="Script" path="res://Scenes/UI/Score.gd" id="1_5cdok"]
+[ext_resource type="Texture2D" uid="uid://c6lfktvomhrcb" path="res://Art/Arrow-Placeholder.svg" id="2_nkv8s"]
+[ext_resource type="Script" path="res://Scenes/UI/NavigationArrow.gd" id="3_pupt8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v61rj"]
 line_spacing = 10.0
 
 [node name="User Interface" type="Control"]
+top_level = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,17 +21,32 @@ offset_bottom = -646.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.994)
+script = ExtResource("1_0an6c")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = -54.0
-offset_right = 54.0
-offset_bottom = 72.0
+anchor_right = 0.5
+offset_left = -536.0
+offset_right = -423.0
+offset_bottom = 57.0
 grow_horizontal = 2
+text = "placeholder"
 label_settings = SubResource("LabelSettings_v61rj")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 script = ExtResource("1_5cdok")
+
+[node name="NavigationArrow" type="Node2D" parent="."]
+top_level = true
+z_index = 2
+position = Vector2(1104, 48)
+script = ExtResource("3_pupt8")
+
+[node name="NavigationSprite" type="Sprite2D" parent="NavigationArrow"]
+show_behind_parent = true
+z_index = 1
+scale = Vector2(1.875, 1.875)
+texture = ExtResource("2_nkv8s")
