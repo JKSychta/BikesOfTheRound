@@ -572,7 +572,7 @@ offset_right = -613.0
 offset_bottom = -648.0
 
 [node name="Enemy_Spawner" parent="." instance=ExtResource("8_2371h")]
-position = Vector2(64, 275)
+position = Vector2(-259, 435)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(467, 140)
@@ -584,17 +584,18 @@ script = ExtResource("8_lal3y")
 position = Vector2(471, 86)
 
 [node name="delivery_point" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("7_nxsa3")]
-position = Vector2(494, -32)
+position = Vector2(213, 267)
 
 [node name="delivery_point2" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("7_nxsa3")]
-position = Vector2(590, -32)
+position = Vector2(721, 7)
 
 [node name="delivery_point3" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("7_nxsa3")]
-position = Vector2(687, -32)
+position = Vector2(721, 265)
 
 [node name="delivery_point4" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("7_nxsa3")]
-position = Vector2(398, -32)
+position = Vector2(209, 9)
 
+[connection signal="player_global_position" from="Node2D/Player" to="Node2D/Player/Camera2D/CanvasLayer/User Interface" method="_on_player_player_global_position"]
+[connection signal="navigationTarget" from="Delivery_System" to="Node2D/Player/Camera2D/CanvasLayer/User Interface" method="_on_delivery_system_navigation_target"]
 [connection signal="deliveryPointSelect" from="Delivery_System/delivery_spawn" to="Delivery_System" method="_on_delivery_spawn_delivery_point_select"]
-[connection signal="navigationTarget" from="Delivery_System/delivery_spawn" to="Node2D/Player/Camera2D/CanvasLayer/User Interface" method="_on_delivery_spawn_navigation_target"]
-[connection signal="navigationTarget" from="Delivery_System/delivery_point" to="Node2D/Player/Camera2D/CanvasLayer/User Interface" method="_on_delivery_point_navigation_target"]
+[connection signal="navigationTargetSpawn" from="Delivery_System/delivery_spawn" to="Node2D/Player/Camera2D/CanvasLayer/User Interface" method="_on_delivery_spawn_navigation_target_spawn"]

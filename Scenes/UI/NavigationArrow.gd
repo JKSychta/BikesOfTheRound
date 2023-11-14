@@ -1,6 +1,6 @@
 extends Node2D
 
-var target: Vector2 = Vector2.ZERO
+var target: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,13 +9,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if target == Vector2.ZERO:
+	if target == null:
 		pass
 	else:
-		look_at(target)
+		look_at(target.global_position)
 	print(target)
 #	look_at(get_global_mouse_position())
 
 
-func set_target(newTarget:Vector2):
+func set_target(newTarget: Node2D):
 	target = newTarget

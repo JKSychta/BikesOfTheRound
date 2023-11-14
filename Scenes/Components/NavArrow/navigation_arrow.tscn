@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp6s6cp1w8mfg"]
+
+[ext_resource type="Script" path="res://Scenes/UI/NavigationArrow.gd" id="1_uju88"]
+[ext_resource type="Texture2D" uid="uid://c6lfktvomhrcb" path="res://Art/Arrow-Placeholder.svg" id="2_rprxl"]
+
+[node name="NavigationArrow" type="Node2D"]
+top_level = true
+z_index = 2
+position = Vector2(1104, 48)
+script = ExtResource("1_uju88")
+
+[node name="NavigationSprite" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = 1
+scale = Vector2(1.875, 1.875)
+texture = ExtResource("2_rprxl")

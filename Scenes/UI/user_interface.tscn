@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://2qac47tfb0q3"]
+[gd_scene load_steps=5 format=3 uid="uid://2qac47tfb0q3"]
 
 [ext_resource type="Script" path="res://Scenes/UI/user_interface.gd" id="1_0an6c"]
 [ext_resource type="Script" path="res://Scenes/UI/Score.gd" id="1_5cdok"]
-[ext_resource type="Texture2D" uid="uid://c6lfktvomhrcb" path="res://Art/Arrow-Placeholder.svg" id="2_nkv8s"]
-[ext_resource type="Script" path="res://Scenes/UI/NavigationArrow.gd" id="3_pupt8"]
+[ext_resource type="Texture2D" uid="uid://c6lfktvomhrcb" path="res://Art/Arrow-Placeholder.svg" id="3_4cl8q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v61rj"]
 line_spacing = 10.0
@@ -39,14 +38,7 @@ vertical_alignment = 1
 uppercase = true
 script = ExtResource("1_5cdok")
 
-[node name="NavigationArrow" type="Node2D" parent="."]
-top_level = true
-z_index = 2
-position = Vector2(1104, 48)
-script = ExtResource("3_pupt8")
-
-[node name="NavigationSprite" type="Sprite2D" parent="NavigationArrow"]
-show_behind_parent = true
-z_index = 1
-scale = Vector2(1.875, 1.875)
-texture = ExtResource("2_nkv8s")
+[node name="NavigationArrow" type="Sprite2D" parent="."]
+position = Vector2(0, 30.1811)
+rotation = 6.28318
+texture = ExtResource("3_4cl8q")

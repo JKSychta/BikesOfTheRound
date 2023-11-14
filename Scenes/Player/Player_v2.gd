@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_global_position(playerGlobalPosition)
+
 #define the distance between front and back based on the sprite
 var wheel_base = 32 # 16 is the height of our current sprite
 #define the angle at which the wheels will turn
@@ -32,6 +34,7 @@ func _ready():
 
 #called every phisics engine tick
 func _physics_process(delta):
+	emit_signal("player_global_position", global_position)
 	acceleration = Vector2.ZERO
 	get_input()
 	apply_friction()
