@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/user_interface.gd" id="1_0an6c"]
 [ext_resource type="Script" path="res://Scenes/UI/Score.gd" id="1_5cdok"]
-[ext_resource type="Texture2D" uid="uid://c6lfktvomhrcb" path="res://Art/Arrow-Placeholder.svg" id="3_4cl8q"]
+[ext_resource type="Texture2D" uid="uid://duwb55u2t1jcb" path="res://Art/UI/NavArrow.png" id="3_aynal"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v61rj"]
 line_spacing = 10.0
@@ -39,6 +39,6 @@ uppercase = true
 script = ExtResource("1_5cdok")
 
 [node name="NavigationArrow" type="Sprite2D" parent="."]
-position = Vector2(0, 30.1811)
+position = Vector2(40, 57.3441)
 rotation = 6.28318
-texture = ExtResource("3_4cl8q")
+texture = ExtResource("3_aynal")
