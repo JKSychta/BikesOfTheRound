@@ -4,3 +4,9 @@ extends Node
 #	randomize()
 
 var score = 0
+
+func increaseScore(points):
+	score+= points
+	
+func resetScore():
+	score = 0

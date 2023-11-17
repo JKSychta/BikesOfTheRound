@@ -591,4 +591,40 @@ position = Vector2(687, -32)
 [node name="delivery_point4" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("7_nxsa3")]
 position = Vector2(398, -32)
 
+<<<<<<< Updated upstream
 [connection signal="deliveryPointSelect" from="Delivery_System/delivery_spawn" to="Delivery_System" method="_on_delivery_spawn_delivery_point_select"]
+=======
+[node name="GameCountdownTimer" type="Timer" parent="."]
+wait_time = 40.0
+script = ExtResource("10_plrf8")
+defaultTimer = 10.0
+
+[node name="Player" parent="." instance=ExtResource("3_6ybb7")]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(467, 138)
+rotation = -1.57077
+collision_mask = 10
+metadata/_edit_vertical_guides_ = [-8.0, 8.0]
+metadata/_edit_horizontal_guides_ = [-8.0, 8.0]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
+
+[node name="User_Interface" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("2_k1lms")]
+offset_left = 539.0
+offset_top = -4.76837e-07
+offset_right = -613.0
+offset_bottom = -648.0
+
+[connection signal="navigationTarget" from="Delivery_System" to="Player/Camera2D/CanvasLayer/User_Interface" method="_on_delivery_system_navigation_target"]
+[connection signal="deliveryPointSelect" from="Delivery_System/delivery_spawn" to="Delivery_System" method="_on_delivery_spawn_delivery_point_select"]
+[connection signal="navigationTargetSpawn" from="Delivery_System/delivery_spawn" to="Player/Camera2D/CanvasLayer/User_Interface" method="_on_delivery_spawn_navigation_target_spawn"]
+[connection signal="timeout" from="GameCountdownTimer" to="." method="_on_game_countdown_timer_timeout"]
+[connection signal="packageDelivered" from="Player" to="GameCountdownTimer" method="_on_player_package_delivered"]
+[connection signal="player_global_position" from="Player" to="Player/Camera2D/CanvasLayer/User_Interface" method="_on_player_player_global_position"]
+>>>>>>> Stashed changes
