@@ -1,6 +1,7 @@
 extends Node2D
 
 signal deliveryPointSelect
+signal navigationTargetSpawn(target)
 
 @onready var packagePickUp: PackedScene = preload("res://Scenes/PickUps/PackagePickUp/package_pick_up.tscn")
 
@@ -17,6 +18,7 @@ func spawn_package_pick_up():
 	var package = packagePickUp.instantiate()
 	package.package_picked_up.connect(on_package_picked_up)
 	add_child(package)
+	emit_signal('navigationTargetSpawn', global_position)
 	
 func on_package_picked_up():
 	emit_signal("deliveryPointSelect")
