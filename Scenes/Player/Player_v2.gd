@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal player_global_position(playerGlobalPosition)
+signal packageDelivered
 
 #define the distance between front and back based on the sprite
 var wheel_base = 32 # 16 is the height of our current sprite
@@ -113,6 +114,7 @@ func package_delivered() -> bool:
 		holding_delivery = false
 		Global.score += 1000
 		print("DELIVERED PACKAGE")
+		emit_signal('packageDelivered')
 		return true
 	else:
 		return false

@@ -4,6 +4,7 @@ var target = Vector2.ZERO
 var currentTarget: Vector2
 var playerPosition: Vector2
 @onready var navigationArrow = $NavigationArrow
+@onready var timeLeft = $TimeLeft
 var player
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +22,6 @@ func _process(delta):
 
 func _on_player_player_global_position(player_global_position):
 	playerPosition = player_global_position
-
 	pass
 	
 
