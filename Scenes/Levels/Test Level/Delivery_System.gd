@@ -1,5 +1,6 @@
 extends Node
 
+signal navigationTarget(target)
 @onready var deliveryPoints= get_tree().get_nodes_in_group("DeliveryPoints")
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,7 @@ func choose_destination():
 	var selectedPoint = deliveryPoints[randomPoint]
 	if selectedPoint.has_method('target_point_toggle'):
 		selectedPoint.target_point_toggle()
+		emit_signal("navigationTarget", selectedPoint.global_position)
 	
 
 
