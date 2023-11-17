@@ -1,4 +1,6 @@
 extends CharacterBody2D
+
+
 @export var health = 3
 @export var point_value = 100
 @export var move_speed = 15
@@ -7,6 +9,7 @@ var player = null
 
 func  _process(delta):
 	if health <= 0:
+		Global.increaseScore(point_value)
 		queue_free()
 
 func _physics_process(delta):
@@ -24,6 +27,9 @@ func _on_detection_radius_body_exited(body):
 	player = null
 
 
-func _on_tree_exited():
-	Global.score += point_value
-	print(Global.score)
+#func _on_tree_exited():
+#	Global.increaseScore(point_value)
+#	print(Global.score)
+
+func kill():
+	queue_free()

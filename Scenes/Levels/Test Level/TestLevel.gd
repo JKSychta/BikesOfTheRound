@@ -3,6 +3,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	game_start()
 	pass
 
 
@@ -13,5 +14,16 @@ func _process(delta):
 	pass
 
 func game_start():
-	Global.score = 0
-	$Node2D/Player.position = $PlayerSpawn.position
+	Global.resetScore()
+	$Player.position = $PlayerSpawn.position
+	$GameCountdownTimer.start()
+	
+func game_over():
+	$Enemy_Spawner.killAll()
+	$Player.holding_delivery = false
+	
+
+func _on_game_countdown_timer_timeout():
+	game_over()
+	game_start()
+

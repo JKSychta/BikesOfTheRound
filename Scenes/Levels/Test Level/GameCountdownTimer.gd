@@ -1,10 +1,15 @@
+## This is the main timer that controlls the time left in a session
 extends Timer
+
+@export var defaultTimer: float = 20
+@export var deliveryBonusTime: float = 10
 var ui
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ui = get_parent().get_node("Player/Camera2D/CanvasLayer/User_Interface")
-	
+	resetToDefault()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -14,6 +19,14 @@ func _process(delta):
 	else:
 		ui.timeLeft.modulate = Color.WHITE
 
+## This function adds more time to the session
+func add_time(bonusTime):
+	self.wait_time = time_left + bonusTime
+	self.start()
 
+## This function adds time uppon reciving a signal emited from a player after delivering a package
 func _on_player_package_delivered():
-	pass
+	add_time(deliveryBonusTime)
+
+func resetToDefault():
+	wait_time = defaultTimer

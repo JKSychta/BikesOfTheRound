@@ -112,7 +112,7 @@ func package_picked_up():
 func package_delivered() -> bool:
 	if holding_delivery:
 		holding_delivery = false
-		Global.score += 1000
+		Global.increaseScore(1000)
 		print("DELIVERED PACKAGE")
 		emit_signal('packageDelivered')
 		return true

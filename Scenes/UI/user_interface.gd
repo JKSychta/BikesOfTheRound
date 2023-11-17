@@ -19,7 +19,6 @@ func _process(delta):
 #	navigationArrow.rotate(deg_to_rad(15))
 	
 
-
 func _on_player_player_global_position(player_global_position):
 	playerPosition = player_global_position
 	pass

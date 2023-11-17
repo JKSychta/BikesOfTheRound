@@ -25,6 +25,7 @@ func spawn(amount = 1):
 	for i in range(amount):
 		var e = Enemy.instantiate()
 		add_child(e)
+		print(e.name)
 		e.position += Vector2(randomSpawnPoint(), randomSpawnPoint())
 	alive_enemies_count = amount
 
@@ -47,3 +48,9 @@ func _on_child_exiting_tree(node):
 func _on_everybody_dead():
 		timer.start()
 		timer_label.show()
+		
+func killAll():
+	for i in range(get_child_count()):
+		var child = get_child(i)
+		if child.has_method('kill'):
+			child.kill()
