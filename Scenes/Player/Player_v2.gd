@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal player_global_position(playerGlobalPosition)
+signal packageDelivered
+
 #define the distance between front and back based on the sprite
 var wheel_base = 32 # 16 is the height of our current sprite
 #define the angle at which the wheels will turn
@@ -32,6 +35,7 @@ func _ready():
 
 #called every phisics engine tick
 func _physics_process(delta):
+	emit_signal("player_global_position", global_position)
 	acceleration = Vector2.ZERO
 	get_input()
 	apply_friction()
@@ -110,6 +114,7 @@ func package_delivered() -> bool:
 		holding_delivery = false
 		Global.increaseScore(1000)
 		print("DELIVERED PACKAGE")
+		emit_signal('packageDelivered')
 		return true
 	else:
 		return false
