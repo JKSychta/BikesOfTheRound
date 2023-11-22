@@ -569,7 +569,6 @@ position = Vector2(209, 9)
 [node name="GameCountdownTimer" type="Timer" parent="."]
 wait_time = 40.0
 script = ExtResource("10_plrf8")
-defaultTimer = 10.0
 
 [node name="Player" parent="." instance=ExtResource("3_6ybb7")]
 light_mask = 3
@@ -597,5 +596,6 @@ offset_bottom = -648.0
 [connection signal="deliveryPointSelect" from="Delivery_System/delivery_spawn" to="Delivery_System" method="_on_delivery_spawn_delivery_point_select"]
 [connection signal="navigationTargetSpawn" from="Delivery_System/delivery_spawn" to="Player/Camera2D/CanvasLayer/User_Interface" method="_on_delivery_spawn_navigation_target_spawn"]
 [connection signal="timeout" from="GameCountdownTimer" to="." method="_on_game_countdown_timer_timeout"]
+[connection signal="healthChanged" from="Player" to="Player/Camera2D/CanvasLayer/User_Interface" method="_on_player_health_changed"]
 [connection signal="packageDelivered" from="Player" to="GameCountdownTimer" method="_on_player_package_delivered"]
 [connection signal="player_global_position" from="Player" to="Player/Camera2D/CanvasLayer/User_Interface" method="_on_player_player_global_position"]

@@ -9,10 +9,12 @@ signal everybody_dead
 @onready var timer_label = $TimeDisplayLabel
 var alive_enemies_count: int
 @onready var area_radius = $Area2D/CollisionShape2D.shape.radius
+var startTimerCheck: bool = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn(enemy_count)
+	spawn()
 	timer.wait_time = respawn_time
 	timer_label.hide()
 
@@ -21,13 +23,13 @@ func _process(delta):
 	pass
 #	print(get_child_count())
 
-func spawn(amount = 1):
-	for i in range(amount):
+func spawn():
+	startTimerCheck = false
+	for i in range(enemy_count):
 		var e = Enemy.instantiate()
 		add_child(e)
-		print(e.name)
 		e.position += Vector2(randomSpawnPoint(), randomSpawnPoint())
-	alive_enemies_count = amount
+	alive_enemies_count = enemy_count
 
 func randomSpawnPoint():
 	var distance := randi_range(-area_radius, area_radius)	
@@ -35,7 +37,7 @@ func randomSpawnPoint():
 
 
 func _on_respawn_timer_timeout():
-	spawn(enemy_count)
+	spawn()
 	timer_label.hide()
 
 
@@ -46,11 +48,14 @@ func _on_child_exiting_tree(node):
 
 
 func _on_everybody_dead():
+	if startTimerCheck:
 		timer.start()
 		timer_label.show()
 		
 func killAll():
+	startTimerCheck = false
 	for i in range(get_child_count()):
 		var child = get_child(i)
 		if child.has_method('kill'):
 			child.kill()
+	spawn()

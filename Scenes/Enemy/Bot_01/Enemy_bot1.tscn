@@ -70,7 +70,6 @@ shape = SubResource("CircleShape2D_x8lfr")
 debug_color = Color(0.447059, 0.596078, 0, 0.101961)
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_oxotc")]
-MAX_HEALTH = 3.0
 
 [node name="BotMeleeAttack" type="Node2D" parent="."]
 script = ExtResource("5_35t7t")
@@ -98,6 +97,7 @@ frame_progress = 0.23324
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
 [connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]
+[connection signal="healthDepleated" from="HealthComponent" to="." method="_on_health_component_health_depleated"]
 [connection signal="area_entered" from="BotMeleeAttack/AttackRange" to="BotMeleeAttack" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="BotMeleeAttack/AttackRange" to="BotMeleeAttack" method="_on_attack_range_area_exited"]
 [connection signal="body_entered" from="BotMeleeAttack/AttackRange" to="BotMeleeAttack" method="_on_body_entered"]

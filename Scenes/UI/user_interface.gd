@@ -5,7 +5,7 @@ var currentTarget: Vector2
 var playerPosition: Vector2
 @onready var navigationArrow = $NavigationArrow
 @onready var timeLeft = $TimeLeft
-var player
+var playerHealth
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -34,3 +34,7 @@ func _on_delivery_system_navigation_target(target):
 	currentTarget = target  # Replace with function body.
 	$NavigationArrow.self_modulate = Color.GREEN
 #	print(target)
+
+
+func _on_player_health_changed(health):
+	$LivesText.lives = health

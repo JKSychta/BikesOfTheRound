@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://2qac47tfb0q3"]
+[gd_scene load_steps=10 format=3 uid="uid://2qac47tfb0q3"]
 
 [ext_resource type="Script" path="res://Scenes/UI/user_interface.gd" id="1_0an6c"]
 [ext_resource type="Script" path="res://Scenes/UI/Score.gd" id="1_5cdok"]
-[ext_resource type="FontFile" path="res://Fonts/ARCADECLASSIC.TTF" id="2_ihdsj"]
-[ext_resource type="Texture2D" path="res://Art/UI/NavArrow.png" id="3_aynal"]
+[ext_resource type="FontFile" uid="uid://8bb80owp4ptp" path="res://Fonts/ARCADECLASSIC.TTF" id="2_ihdsj"]
+[ext_resource type="Texture2D" uid="uid://duwb55u2t1jcb" path="res://Art/UI/NavArrow.png" id="3_aynal"]
+[ext_resource type="Script" path="res://Scenes/UI/LivesText.gd" id="5_nm80i"]
+[ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/New assets/Car/Player_blue (16 x 16).png" id="6_5ltct"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v61rj"]
 line_spacing = 0.0
@@ -13,6 +15,9 @@ font_size = 18
 [sub_resource type="LabelSettings" id="LabelSettings_8ajt8"]
 font = ExtResource("2_ihdsj")
 font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_ywp4f"]
+font = ExtResource("2_ihdsj")
 
 [node name="User_Interface" type="Control"]
 top_level = true
@@ -29,35 +34,58 @@ grow_vertical = 2
 scale = Vector2(1, 0.994)
 script = ExtResource("1_0an6c")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_vertical_guides_ = [8.0, 1144.0]
+metadata/_edit_horizontal_guides_ = [16.0]
 
 [node name="Points" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
-offset_left = -536.0
-offset_right = -423.0
-offset_bottom = 57.0
+offset_left = -528.0
+offset_top = 14.0845
+offset_right = -415.0
+offset_bottom = 39.0845
 grow_horizontal = 2
-text = "placeholder"
+text = "Score: 9999"
 label_settings = SubResource("LabelSettings_v61rj")
-horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 script = ExtResource("1_5cdok")
 
 [node name="TimeLeft" type="Label" parent="."]
 layout_mode = 0
-offset_left = 520.0
-offset_top = 6.03622
-offset_right = 550.0
-offset_bottom = 32.0362
+offset_left = 544.0
+offset_top = 14.0845
+offset_right = 574.0
+offset_bottom = 32.0845
 scale = Vector2(2.11697, 2.08052)
 text = "999"
 label_settings = SubResource("LabelSettings_8ajt8")
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="NavigationArrow" type="Sprite2D" parent="."]
-position = Vector2(40, 57.3441)
+position = Vector2(40, 39.2354)
 rotation = 6.28318
 texture = ExtResource("3_aynal")
+
+[node name="LivesText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = -512.0
+offset_top = 39.2354
+offset_right = -480.0
+offset_bottom = 62.2354
+grow_horizontal = 2
+text = "X 9"
+label_settings = SubResource("LabelSettings_ywp4f")
+vertical_alignment = 1
+script = ExtResource("5_nm80i")
+
+[node name="LivesIcon" type="Sprite2D" parent="LivesText"]
+position = Vector2(-8.00012, 12.0724)
+scale = Vector2(1, 1)
+texture = ExtResource("6_5ltct")
+region_enabled = true
+region_rect = Rect2(0, 1, 16, 16)

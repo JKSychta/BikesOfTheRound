@@ -7,11 +7,6 @@ extends CharacterBody2D
 var player = null
 
 
-func  _process(delta):
-	if health <= 0:
-		Global.increaseScore(point_value)
-		queue_free()
-
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 	if player:
@@ -33,3 +28,8 @@ func _on_detection_radius_body_exited(body):
 
 func kill():
 	queue_free()
+
+
+func _on_health_component_health_depleated():
+		Global.increaseScore(point_value)
+		queue_free()
