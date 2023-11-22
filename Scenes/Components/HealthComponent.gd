@@ -1,15 +1,22 @@
 extends Node2D
 class_name HealthComponent
 
-@export var MAX_HEALTH := 10.0
-var health: float
+
+signal healthDepleated
+signal healthChanged(health: int)
+
+@export var START_HEALTH := 3
+var health: int
 
 func _ready():
-	health = MAX_HEALTH
+	health = START_HEALTH
 
 func damage(attack: Attack):
 	health -= attack.attack_damage
-	print(health)
-	
+	emit_signal('healthChanged', health)
 	if health <= 0:
-		get_parent().queue_free()
+		emit_signal('healthDepleated')
+
+func heal(healValue := 1):
+	health += healValue
+	emit_signal('healthChanged', health)

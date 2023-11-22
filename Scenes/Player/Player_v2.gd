@@ -2,13 +2,15 @@ extends CharacterBody2D
 
 signal player_global_position(playerGlobalPosition)
 signal packageDelivered
+signal playerDead
+signal healthChanged(health)
 
 #define the distance between front and back based on the sprite
 var wheel_base = 32 # 16 is the height of our current sprite
 #define the angle at which the wheels will turn
-@export var steereing_angle = deg_to_rad(15)
+@export var steereing_angle = deg_to_rad(30)
 #the speed whith wich the car will accelerate
-@export var speed = 1000
+@export var speed = 600
 @export var braking = -450
 @export var max_speed_reverse = 250
 @export var friction_force = Vector2.ZERO
@@ -119,14 +121,20 @@ func package_delivered() -> bool:
 	else:
 		return false
 
+func setPlayerHealth():
+	$HealthComponent.health = 3
 
-#func animate_sprite():
-#	var car_direction =
-#	print(car_direction)
-#	angle = snapped(rotation, PI/4) / (PI/4)
-##	print(angle)
-#	angle = wrapi(int(angle), 0, 8)
-##	print(angle)
-#	$AnimatedSprite2D.animation = "8dirtest"
-#	$AnimatedSprite2D.frame = angle
-#
+func _on_health_component_health_depleated():
+	emit_signal('playerDead')
+
+
+func _on_health_component_health_changed(health):
+	emit_signal('healthChanged', health)
+
+func _on_hit_box_component_entity_damaged():
+	$HitBoxComponent/CollisionShape2D.disabled = true
+	$Invulnerability.start()
+
+
+func _on_invulnerability_timeout():
+	$HitBoxComponent/CollisionShape2D.disabled = false

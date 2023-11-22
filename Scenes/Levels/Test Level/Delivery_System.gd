@@ -21,6 +21,11 @@ func choose_destination():
 		emit_signal("navigationTarget", selectedPoint.global_position)
 	
 
-
+func deselect_all():
+	for i in range(len(deliveryPoints)):
+		var deliveryPoint = deliveryPoints[i]
+		if deliveryPoint.targetPoint == true:
+			deliveryPoint.target_point_toggle()
+		
 func _on_delivery_spawn_delivery_point_select():
 	choose_destination()

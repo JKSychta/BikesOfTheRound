@@ -1,7 +1,7 @@
 ## This is the main timer that controlls the time left in a session
 extends Timer
 
-@export var defaultTimer: float = 20
+@export var defaultTimer: float = 10
 @export var deliveryBonusTime: float = 10
 var ui
 
