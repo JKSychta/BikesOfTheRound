@@ -29,7 +29,8 @@ var drag: float = -0.0015
 var angle
 var shot_ready :bool = true
 var holding_delivery:bool = false
-
+var oldModulate = self.modulate
+var flickerSwitch = true
 
 func _ready():
 	$FireRate.wait_time = fire_rate
@@ -121,8 +122,8 @@ func package_delivered() -> bool:
 	else:
 		return false
 
-func setPlayerHealth():
-	$HealthComponent.health = 3
+func set_player_health():
+	$HealthComponent._ready()
 
 func _on_health_component_health_depleated():
 	emit_signal('playerDead')
@@ -134,7 +135,17 @@ func _on_health_component_health_changed(health):
 func _on_hit_box_component_entity_damaged():
 	$HitBoxComponent/CollisionShape2D.disabled = true
 	$Invulnerability.start()
-
+	$InvulnerabilityFlicker.start()
 
 func _on_invulnerability_timeout():
 	$HitBoxComponent/CollisionShape2D.disabled = false
+	$InvulnerabilityFlicker.stop()
+	$Sprite2D.modulate = oldModulate
+
+
+func _on_invulnerability_flicker_timeout():
+	if flickerSwitch:
+		$Sprite2D.modulate = Color.RED
+	else:
+		$Sprite2D.modulate = oldModulate
+	!flickerSwitch

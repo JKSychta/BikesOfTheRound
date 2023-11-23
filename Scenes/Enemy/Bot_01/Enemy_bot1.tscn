@@ -21,13 +21,13 @@ b = Vector2(11, 0)
 [sub_resource type="SpriteFrames" id="SpriteFrames_m57wp"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("6_opge2")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("7_2uaei")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("8_spvmq")
 }],
 "loop": true,
@@ -70,6 +70,7 @@ shape = SubResource("CircleShape2D_x8lfr")
 debug_color = Color(0.447059, 0.596078, 0, 0.101961)
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_oxotc")]
+START_HEALTH = 1
 
 [node name="BotMeleeAttack" type="Node2D" parent="."]
 script = ExtResource("5_35t7t")

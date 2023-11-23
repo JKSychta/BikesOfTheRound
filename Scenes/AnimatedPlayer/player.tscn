@@ -402,6 +402,7 @@ animation = &"big_sprite"
 frame_progress = 0.46848
 
 [node name="HealthComponent" parent="." instance=ExtResource("52_jy77m")]
+START_HEALTH = 3
 
 [node name="HitBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("53_waes6")]
 collision_mask = 2
@@ -418,10 +419,15 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Invulnerability" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
+
+[node name="InvulnerabilityFlicker" type="Timer" parent="."]
+wait_time = 0.1
 
 [connection signal="healthChanged" from="HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="healthDepleated" from="HealthComponent" to="." method="_on_health_component_health_depleated"]
 [connection signal="entityDamaged" from="HitBoxComponent" to="." method="_on_hit_box_component_entity_damaged"]
 [connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]
 [connection signal="timeout" from="Invulnerability" to="." method="_on_invulnerability_timeout"]
+[connection signal="timeout" from="InvulnerabilityFlicker" to="." method="_on_invulnerability_flicker_timeout"]

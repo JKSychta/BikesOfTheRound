@@ -85,7 +85,6 @@ script = ExtResource("5_nm80i")
 
 [node name="LivesIcon" type="Sprite2D" parent="LivesText"]
 position = Vector2(-8.00012, 12.0724)
-scale = Vector2(1, 1)
 texture = ExtResource("6_5ltct")
 region_enabled = true
 region_rect = Rect2(0, 1, 16, 16)
