@@ -8,7 +8,7 @@ var ui
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ui = get_parent().get_node("Player/Camera2D/CanvasLayer/User_Interface")
+	ui = get_parent().get_node("Player/CanvasLayer/User_Interface")
 	resetToDefault()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

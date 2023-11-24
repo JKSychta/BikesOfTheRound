@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dtvqyc34g0n52"]
+[gd_scene load_steps=73 format=3 uid="uid://dtvqyc34g0n52"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player_v2.gd" id="1_ewvlo"]
 [ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/New assets/Car/Player_blue (16 x 16).png" id="2_fgpf3"]
@@ -54,8 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/health_component.tscn" id="52_jy77m"]
 [ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="53_waes6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dde85"]
-radius = 4.34492
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wg4r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgsta"]
 atlas = ExtResource("3_aiwbe")
@@ -366,6 +365,8 @@ animations = [{
 "speed": 0.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ln2hu"]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 rotation = 10.9956
 collision_layer = 5
@@ -387,8 +388,9 @@ region_rect = Rect2(0, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.000139713, -0.0132847)
-scale = Vector2(1.62787, 1.6063)
-shape = SubResource("CircleShape2D_dde85")
+rotation = -1.57079
+scale = Vector2(0.276945, 0.273275)
+shape = SubResource("CapsuleShape2D_8wg4r")
 
 [node name="BulletSpawn" type="Marker2D" parent="."]
 position = Vector2(14.6763, -0.000112057)
@@ -401,18 +403,19 @@ sprite_frames = SubResource("SpriteFrames_vl5h0")
 animation = &"big_sprite"
 frame_progress = 0.46848
 
-[node name="HealthComponent" parent="." instance=ExtResource("52_jy77m")]
-START_HEALTH = 3
-
 [node name="HitBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("53_waes6")]
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
 position = Vector2(-0.000139713, -0.0132847)
-scale = Vector2(1.62787, 1.6063)
-shape = SubResource("CircleShape2D_dde85")
+rotation = -1.57079
+scale = Vector2(0.306734, 0.30267)
+shape = SubResource("CapsuleShape2D_ln2hu")
 debug_color = Color(0.996078, 0, 0.192157, 0.419608)
+
+[node name="HealthComponent" parent="." instance=ExtResource("52_jy77m")]
+START_HEALTH = 3
 
 [node name="FireRate" type="Timer" parent="."]
 wait_time = 0.5
@@ -425,9 +428,9 @@ one_shot = true
 [node name="InvulnerabilityFlicker" type="Timer" parent="."]
 wait_time = 0.1
 
+[connection signal="entityDamaged" from="HitBoxComponent" to="." method="_on_hit_box_component_entity_damaged"]
 [connection signal="healthChanged" from="HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="healthDepleated" from="HealthComponent" to="." method="_on_health_component_health_depleated"]
-[connection signal="entityDamaged" from="HitBoxComponent" to="." method="_on_hit_box_component_entity_damaged"]
 [connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]
 [connection signal="timeout" from="Invulnerability" to="." method="_on_invulnerability_timeout"]
 [connection signal="timeout" from="InvulnerabilityFlicker" to="." method="_on_invulnerability_flicker_timeout"]

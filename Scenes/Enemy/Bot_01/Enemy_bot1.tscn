@@ -13,7 +13,7 @@
 size = Vector2(14.1066, 13.8958)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x8lfr"]
-radius = 190.055
+radius = 112.071
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_n38ik"]
 b = Vector2(11, 0)

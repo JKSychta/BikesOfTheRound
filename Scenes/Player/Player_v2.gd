@@ -6,9 +6,10 @@ signal playerDead
 signal healthChanged(health)
 
 #define the distance between front and back based on the sprite
-var wheel_base = 32 # 16 is the height of our current sprite
+var wheel_base = 16 # 16 is the height of our current sprite
 #define the angle at which the wheels will turn
-@export var steereing_angle = deg_to_rad(30)
+@export var steering_angle_degrees = 20
+var steereing_angle = deg_to_rad(steering_angle_degrees)
 #the speed whith wich the car will accelerate
 @export var speed = 600
 @export var braking = -450
@@ -73,7 +74,8 @@ func get_input():
 		acceleration = transform.x * speed
 	if Input.is_action_pressed("shoot"):
 		shoot()
-
+	if Input.is_action_just_pressed("escape"):
+		get_tree().change_scene_to_file("res://Scenes/MainMenu/main_menu.tscn")
 
 		
 #Calculations required for steering		
