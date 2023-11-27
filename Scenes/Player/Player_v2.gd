@@ -48,7 +48,12 @@ func _physics_process(delta):
 #	print("Acceleration:", acceleration.length())
 #	print("Velocity:", velocity.length())
 #	animate_sprite()
+	var temp_velocity = velocity
 	move_and_slide()
+	if get_slide_collision_count() > 0:
+		var collision = get_slide_collision(0)
+		if collision != null:
+			velocity = temp_velocity.bounce(collision.get_normal())
 	
 
 func apply_friction():
