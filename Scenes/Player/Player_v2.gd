@@ -53,7 +53,7 @@ func _physics_process(delta):
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
 		if collision != null:
-			velocity = temp_velocity.bounce(collision.get_normal())
+			velocity = temp_velocity.bounce(collision.get_normal()) * 0.7
 	
 
 func apply_friction():
