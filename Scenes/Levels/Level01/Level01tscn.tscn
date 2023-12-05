@@ -1746,7 +1746,7 @@ position = Vector2(500, -95)
 scale = Vector2(0.5, 0.5)
 
 [node name="delivery_point2" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
-position = Vector2(595, 398)
+position = Vector2(651, 400)
 scale = Vector2(0.5, 0.5)
 
 [node name="delivery_point3" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
@@ -1755,6 +1755,22 @@ scale = Vector2(0.5, 0.5)
 
 [node name="delivery_point4" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
 position = Vector2(164, 655)
+scale = Vector2(0.5, 0.5)
+
+[node name="delivery_point5" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+position = Vector2(-472, -53)
+scale = Vector2(0.5, 0.5)
+
+[node name="delivery_point6" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+position = Vector2(-423, 648)
+scale = Vector2(0.5, 0.5)
+
+[node name="delivery_point7" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+position = Vector2(-455, 321)
+scale = Vector2(0.5, 0.5)
+
+[node name="delivery_point8" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+position = Vector2(159, 291)
 scale = Vector2(0.5, 0.5)
 
 [node name="Enemy_Spawner" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
@@ -1767,6 +1783,26 @@ enemy_count = 4
 
 [node name="Enemy_Spawner3" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-21, 295)
+enemy_count = 3
+
+[node name="Enemy_Spawner4" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(-364, 651)
+enemy_count = 3
+
+[node name="Enemy_Spawner3" parent="Enemy_Spawner4" groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(430, 5)
+enemy_count = 3
+
+[node name="Enemy_Spawner3" parent="Enemy_Spawner4/Enemy_Spawner3" groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(562, -169)
+enemy_count = 3
+
+[node name="Enemy_Spawner3" parent="Enemy_Spawner4/Enemy_Spawner3/Enemy_Spawner3" groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(-17, -186)
+enemy_count = 3
+
+[node name="Enemy_Spawner3" parent="Enemy_Spawner4/Enemy_Spawner3/Enemy_Spawner3/Enemy_Spawner3" groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(-1060, -124)
 enemy_count = 3
 
 [connection signal="healthChanged" from="Player" to="Player/CanvasLayer/User_Interface" method="_on_player_health_changed"]
