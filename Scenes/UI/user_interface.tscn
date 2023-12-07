@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2qac47tfb0q3"]
+[gd_scene load_steps=11 format=3 uid="uid://2qac47tfb0q3"]
 
 [ext_resource type="Script" path="res://Scenes/UI/user_interface.gd" id="1_0an6c"]
 [ext_resource type="Script" path="res://Scenes/UI/Score.gd" id="1_5cdok"]
@@ -19,7 +19,11 @@ font_size = 14
 [sub_resource type="LabelSettings" id="LabelSettings_ywp4f"]
 font = ExtResource("2_ihdsj")
 
+[sub_resource type="LabelSettings" id="LabelSettings_11glj"]
+font_size = 32
+
 [node name="User_Interface" type="Control"]
+process_mode = 3
 top_level = true
 layout_mode = 3
 anchors_preset = 15
@@ -34,8 +38,8 @@ grow_vertical = 2
 scale = Vector2(1, 0.994)
 script = ExtResource("1_0an6c")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_vertical_guides_ = [8.0, 1144.0]
-metadata/_edit_horizontal_guides_ = [16.0]
+metadata/_edit_vertical_guides_ = [536.0, 1144.0]
+metadata/_edit_horizontal_guides_ = [16.0, 336.0]
 
 [node name="Points" type="Label" parent="."]
 layout_mode = 1
@@ -88,3 +92,71 @@ position = Vector2(-8.00012, 12.0724)
 texture = ExtResource("6_5ltct")
 region_enabled = true
 region_rect = Rect2(0, 1, 16, 16)
+
+[node name="PauseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -512.0
+offset_top = 94.5674
+offset_right = -444.0
+offset_bottom = 122.567
+text = "PAUSE"
+
+[node name="UnpauseButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -512.0
+offset_top = 134.809
+offset_right = -420.0
+offset_bottom = 162.809
+text = "Unpause"
+
+[node name="PauseMenuOverlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = -624.0
+offset_top = -10.0604
+offset_right = -584.0
+offset_bottom = 29.9396
+grow_horizontal = 2
+scale = Vector2(31.4782, 17.7136)
+color = Color(0.207843, 0.207843, 0.207843, 0.823529)
+
+[node name="Label" type="Label" parent="PauseMenuOverlay"]
+layout_mode = 0
+offset_left = 13.7238
+offset_top = 11.3589
+offset_right = 133.724
+offset_bottom = 54.3589
+scale = Vector2(0.107335, 0.107335)
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_11glj")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenuOverlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.2652
+offset_top = 17.2656
+offset_right = 80.2652
+offset_bottom = 37.2656
+grow_horizontal = 2
+scale = Vector2(0.0659886, 0.130159)
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="PauseMenuOverlay/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Continue"
+
+[node name="QuitButton" type="Button" parent="PauseMenuOverlay/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="UnpauseButton" to="." method="_on_unpause_button_pressed"]
+[connection signal="pressed" from="PauseMenuOverlay/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenuOverlay/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

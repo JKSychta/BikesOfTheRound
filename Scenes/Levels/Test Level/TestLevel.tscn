@@ -2237,10 +2237,12 @@ offset_left = 539.0
 offset_top = -4.76837e-07
 offset_right = -613.0
 offset_bottom = -648.0
+metadata/_edit_vertical_guides_ = [8.0, 1144.0]
+metadata/_edit_horizontal_guides_ = [16.0]
 
 [node name="LevelTileSet" type="TileMap" parent="."]
 z_index = -1
-position = Vector2(2816, -1554)
+position = Vector2(3991, -1643)
 tile_set = SubResource("TileSet_ihi24")
 format = 2
 layer_0/name = "Terrain"

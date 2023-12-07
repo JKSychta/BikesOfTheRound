@@ -9,6 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+#	getPause()
 	pass
 
 func game_start():
@@ -44,3 +45,11 @@ func spawnerKill():
 	get_tree().call_group("EnemySpawners", "killAll")
 #	for i in len(spawners):
 #		spawners[i].killAll()
+func getPause():
+	if Input.is_action_just_pressed("escape"):
+		if get_tree().paused:
+			get_tree().paused = false
+		else:
+			get_tree().paused = true
+			
+		

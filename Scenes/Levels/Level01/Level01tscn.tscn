@@ -1725,6 +1725,8 @@ zoom = Vector2(2, 2)
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 
 [node name="User_Interface" parent="Player/CanvasLayer" instance=ExtResource("3_v54xb")]
+metadata/_edit_vertical_guides_ = [8.0, 1144.0]
+metadata/_edit_horizontal_guides_ = [16.0]
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(6, 56)
@@ -1777,32 +1779,32 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(272, 9)
 enemy_count = 3
 
-[node name="Enemy_Spawner2" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
-position = Vector2(-214, 5)
-enemy_count = 4
+[node name="Enemy_Spawner8" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(-449, 177)
+enemy_count = 3
 
-[node name="Enemy_Spawner3" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
-position = Vector2(-21, 295)
+[node name="Enemy_Spawner7" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(611, 301)
+enemy_count = 3
+
+[node name="Enemy_Spawner6" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(66, 656)
 enemy_count = 3
 
 [node name="Enemy_Spawner4" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-364, 651)
 enemy_count = 3
 
-[node name="Enemy_Spawner3" parent="Enemy_Spawner4" groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
-position = Vector2(430, 5)
+[node name="Enemy_Spawner5" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(628, 487)
 enemy_count = 3
 
-[node name="Enemy_Spawner3" parent="Enemy_Spawner4/Enemy_Spawner3" groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
-position = Vector2(562, -169)
-enemy_count = 3
+[node name="Enemy_Spawner2" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(-214, 5)
+enemy_count = 4
 
-[node name="Enemy_Spawner3" parent="Enemy_Spawner4/Enemy_Spawner3/Enemy_Spawner3" groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
-position = Vector2(-17, -186)
-enemy_count = 3
-
-[node name="Enemy_Spawner3" parent="Enemy_Spawner4/Enemy_Spawner3/Enemy_Spawner3/Enemy_Spawner3" groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
-position = Vector2(-1060, -124)
+[node name="Enemy_Spawner3" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+position = Vector2(-21, 295)
 enemy_count = 3
 
 [connection signal="healthChanged" from="Player" to="Player/CanvasLayer/User_Interface" method="_on_player_health_changed"]
