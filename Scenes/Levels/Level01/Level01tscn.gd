@@ -21,15 +21,16 @@ func game_start():
 	
 	
 func game_over():
-#	$Enemy_Spawner.killAll()
 	spawnerKill()
 	$Player.holding_delivery = false
+	$Player.velocity = Vector2.ZERO
 	$Delivery_System.deselect_all()
 	
 
 func _on_game_countdown_timer_timeout():
 	game_over()
-	game_start()
+	$Player/CanvasLayer/User_Interface.game_over()
+	
 
 func postionThePlayer():
 	$Player.position = $PlayerSpawn.position
@@ -53,3 +54,6 @@ func getPause():
 			get_tree().paused = true
 			
 		
+
+func _on_user_interface_retry():
+	game_start()

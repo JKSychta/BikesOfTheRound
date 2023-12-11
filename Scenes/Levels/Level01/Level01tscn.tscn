@@ -1735,7 +1735,6 @@ scale = Vector2(0.927746, 0.155605)
 [node name="GameCountdownTimer" type="Timer" parent="."]
 wait_time = 40.0
 script = ExtResource("4_2g4xm")
-defaultTimer = 30.0
 
 [node name="Delivery_System" type="Node" parent="." groups=["DeliverySystem"]]
 script = ExtResource("6_nrnhq")
@@ -1811,6 +1810,7 @@ enemy_count = 3
 [connection signal="packageDelivered" from="Player" to="GameCountdownTimer" method="_on_player_package_delivered"]
 [connection signal="playerDead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="player_global_position" from="Player" to="Player/CanvasLayer/User_Interface" method="_on_player_player_global_position"]
+[connection signal="retry" from="Player/CanvasLayer/User_Interface" to="." method="_on_user_interface_retry"]
 [connection signal="timeout" from="GameCountdownTimer" to="." method="_on_game_countdown_timer_timeout"]
 [connection signal="navigationTarget" from="Delivery_System" to="Player/CanvasLayer/User_Interface" method="_on_delivery_system_navigation_target"]
 [connection signal="deliveryPointSelect" from="Delivery_System/delivery_spawn" to="Delivery_System" method="_on_delivery_spawn_delivery_point_select"]

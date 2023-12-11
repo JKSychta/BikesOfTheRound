@@ -7,15 +7,19 @@ var playerPosition: Vector2
 @onready var timeLeft = $TimeLeft
 var playerHealth
 var paused := false
+var gameOver := false
+signal retry
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$GameOverOverlay.hide()
+	$PauseMenuOverlay.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	navigationArrow.rotation = playerPosition.angle_to_point(currentTarget) + deg_to_rad(90)
-	get_input()
+	if !gameOver:
+		get_input()
 #	print(rad_to_deg(playerPosition.angle_to_point(currentTarget)))
 	
 #	navigationArrow.rotate(deg_to_rad(15))
@@ -70,8 +74,6 @@ func get_input():
 			$PauseMenuOverlay.hide()
 			
 
-	
-
 
 func _on_continue_button_pressed():
 	get_tree().paused = false
@@ -83,4 +85,18 @@ func _on_continue_button_pressed():
 
 
 func _on_quit_button_pressed():
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/MainMenu/main_menu.tscn")
+
+
+func _on_retry_button_pressed():
+	emit_signal("retry")
+	$GameOverOverlay.hide()
+	gameOver = false
+	get_tree().paused = false
+	
+func game_over():
+	gameOver = true
+	get_tree().paused = true
+	$GameOverOverlay.show()
+	
