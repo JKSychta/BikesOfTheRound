@@ -1,10 +1,10 @@
 extends Control
 
-
+var hiScores : Dictionary 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+func _ready(): 
+	hiScores = Global.load_score()
+	setScores()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,3 +21,9 @@ func _on_start_button_pressed():
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+func setScores():
+	var scoreString: String
+	for i in len(hiScores["scores"]):
+		scoreString += str(i+1,". ", hiScores["scores"][i], "\n")
+	$HiScores.text = str("Hiscores\n", scoreString)

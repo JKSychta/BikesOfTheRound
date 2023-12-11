@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.save_score()
 	game_start()
 	pass
 
