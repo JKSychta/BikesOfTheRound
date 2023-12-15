@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+##This is the player node 
 signal player_global_position(playerGlobalPosition)
 signal packageDelivered
 signal playerDead
@@ -50,6 +50,7 @@ func _physics_process(delta):
 #	animate_sprite()
 	var temp_velocity = velocity
 	move_and_slide()
+	## Bounce check
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
 		if collision != null:

@@ -1,13 +1,11 @@
 extends Node
 
-#{
-#	"scores": [90, 40, 2]
-#}
-
-#func _ready():
-#	randomize()
 
 var score = 0
+var loadedScores: Dictionary
+
+func _ready():
+	loadedScores = load_score()
 
 func increaseScore(points):
 	score+= points
@@ -17,9 +15,7 @@ func resetScore():
 
 
 func save_score():
-	var saveScore = {
-		"scores": [100, 50, 10]
-	}
+	var saveScore = loadedScores
 	var scoreFile = FileAccess.open("res://Save/scores.json", FileAccess.WRITE)
 	var jsonString = JSON.stringify(saveScore)
 	scoreFile.store_line(jsonString)
@@ -29,3 +25,18 @@ func load_score() -> Dictionary:
 	var jsonString = scoreFile.get_as_text()
 	var scoreDictionary = JSON.parse_string(jsonString)
 	return scoreDictionary
+
+func update_score():
+	loadedScores["scores"].sort()
+	loadedScores["scores"].reverse()
+	if !(loadedScores["scores"].has(score)):
+		if loadedScores["scores"].min() < score:
+			loadedScores["scores"][len(loadedScores["scores"])-1] = score
+			loadedScores["scores"].sort()
+			loadedScores["scores"].reverse()
+			print("score updated")
+			save_score()
+			loadedScores = load_score()
+		
+		
+	

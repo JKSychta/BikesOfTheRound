@@ -26,7 +26,7 @@ func game_over():
 	$Player.holding_delivery = false
 	$Player.velocity = Vector2.ZERO
 	$Delivery_System.deselect_all()
-	
+	Global.update_score()
 
 func _on_game_countdown_timer_timeout():
 	game_over()

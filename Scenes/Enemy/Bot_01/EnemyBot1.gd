@@ -13,7 +13,12 @@ func _physics_process(delta):
 #		var player_pos = player.position
 		look_at(player.position)
 		velocity = global_position.direction_to(player.global_position) * move_speed
+	var tempVelocity = velocity
 	move_and_slide()
+	if get_slide_collision_count() > 0:
+		var collision = get_slide_collision(0)
+		if collision != null:
+			velocity = tempVelocity.bounce(collision.get_normal()) * 1000
 
 func _on_detection_radius_body_entered(body):
 	player = body
