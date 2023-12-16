@@ -5,14 +5,17 @@ extends CharacterBody2D
 @export var point_value = 100
 @export var move_speed = 15
 var player = null
+var inRange := false
+
 
 
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 	if player:
-#		var player_pos = player.position
-		look_at(player.position)
-		velocity = global_position.direction_to(player.global_position) * move_speed
+		if inRange == false:
+			var player_pos = player.position
+			look_at(player.position)
+			velocity = global_position.direction_to(player.global_position) * move_speed
 	var tempVelocity = velocity
 	move_and_slide()
 	if get_slide_collision_count() > 0:
@@ -38,3 +41,7 @@ func kill():
 func _on_health_component_health_depleated():
 		Global.increaseScore(point_value)
 		queue_free()
+
+
+func _on_bot_melee_attack_in_range():
+	inRange = !inRange

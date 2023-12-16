@@ -100,6 +100,7 @@ frame_progress = 0.23324
 [connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
 [connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]
 [connection signal="healthDepleated" from="HealthComponent" to="." method="_on_health_component_health_depleated"]
+[connection signal="inRange" from="BotMeleeAttack" to="." method="_on_bot_melee_attack_in_range"]
 [connection signal="area_entered" from="BotMeleeAttack/AttackRange" to="BotMeleeAttack" method="_on_attack_range_area_entered"]
 [connection signal="area_exited" from="BotMeleeAttack/AttackRange" to="BotMeleeAttack" method="_on_attack_range_area_exited"]
 [connection signal="body_entered" from="BotMeleeAttack/AttackRange" to="BotMeleeAttack" method="_on_body_entered"]

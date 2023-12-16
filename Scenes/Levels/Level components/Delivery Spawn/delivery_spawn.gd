@@ -23,4 +23,5 @@ func spawn_package_pick_up():
 	
 func on_package_picked_up():
 	emit_signal("deliveryPointSelect")
+	self.hide()
 

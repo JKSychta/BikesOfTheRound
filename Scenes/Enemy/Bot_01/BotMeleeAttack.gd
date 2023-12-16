@@ -1,5 +1,6 @@
 extends Node2D
 
+signal inRange
 @export var attack_damage = 1 
 var player = null
 
@@ -27,15 +28,18 @@ func _on_attack_range_area_entered(area):
 #	$AttackRange/Countdown.start()
 	$AttackAnimation.show()
 	$AttackAnimation.play("default")
+	emit_signal("inRange")
+	
 
 
 func _on_attack_range_area_exited(area):
 	$AttackAnimation.stop()
 	$AttackAnimation.hide()
 	player = null
-		
+	emit_signal("inRange")
 
 
 func _on_attack_animation_animation_looped():
 	attack(player)
+	
 
