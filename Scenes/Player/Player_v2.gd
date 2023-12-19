@@ -69,15 +69,23 @@ func apply_friction():
 #gathering the inputs from user
 func get_input():
 	var turn = 0
+	if Input.is_action_pressed("joy_stick_right"):
+		turn += Input.get_action_strength("joy_stick_right")
 	if Input.is_action_pressed("turn_right"):
 		turn += 1
+	if Input.is_action_pressed("joy_stick_left"):
+		turn -= Input.get_action_strength("joy_stick_left")
 	if Input.is_action_pressed("turn_left"):
 		turn -= 1
 	steer_angle = turn * steereing_angle
 	if Input.is_action_pressed("down"):
 		acceleration = transform.x * braking
+	if Input.is_action_pressed("joy_brake"):
+		acceleration = transform.x * braking * Input.get_action_strength("joy_brake")
 	if Input.is_action_pressed("accelerate"):
 		acceleration = transform.x * speed
+	if Input.is_action_pressed("joy_accelerate"):
+		acceleration = transform.x * speed * Input.get_action_strength("joy_accelerate")
 	if Input.is_action_pressed("shoot"):
 		shoot()
 #	if Input.is_action_just_pressed("escape"):

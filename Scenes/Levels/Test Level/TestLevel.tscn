@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://jxwwx7bkd5ew"]
+[gd_scene load_steps=24 format=3 uid="uid://jxwwx7bkd5ew"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Test Level/TestLevel.gd" id="1_f845d"]
 [ext_resource type="PackedScene" uid="uid://2qac47tfb0q3" path="res://Scenes/UI/user_interface.tscn" id="2_k1lms"]
-[ext_resource type="PackedScene" uid="uid://ddj0cj85o2e2y" path="res://Scenes/Levels/Level01/Level01tscn.tscn" id="2_wta6g"]
 [ext_resource type="PackedScene" uid="uid://dtvqyc34g0n52" path="res://Scenes/AnimatedPlayer/player.tscn" id="3_6ybb7"]
 [ext_resource type="Texture2D" uid="uid://co33smbqo6sb1" path="res://Art/tilemap.png" id="3_olvaq"]
 [ext_resource type="PackedScene" uid="uid://bbk50naeyyv56" path="res://Scenes/Levels/Level components/Delivery Spawn/delivery_spawn.tscn" id="7_lvqpu"]
@@ -2162,9 +2161,6 @@ pattern_3 = SubResource("TileMapPattern_e3p5v")
 
 [node name="TestLevel" type="Node"]
 script = ExtResource("1_f845d")
-
-[node name="Level01" parent="." instance=ExtResource("2_wta6g")]
-position = Vector2(2815, -1556)
 
 [node name="Node2D" type="Node2D" parent="."]
 

@@ -12,12 +12,12 @@ func _ready():
 	resetToDefault()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	ui.timeLeft.text = str(int(self.time_left))
-	if time_left < wait_time/3:
-		ui.timeLeft.modulate = Color.DARK_RED
-	else:
-		ui.timeLeft.modulate = Color.WHITE
+#func _process(delta):
+#	ui.timeLeft.text = str(int(self.time_left))
+#	if time_left < wait_time/3:
+#		ui.timeLeft.modulate = Color.DARK_RED
+#	else:
+#		ui.timeLeft.modulate = Color.WHITE
 
 ## This function adds more time to the session
 func add_time(bonusTime):
