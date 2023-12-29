@@ -39,9 +39,17 @@ func kill():
 
 
 func _on_health_component_health_depleated():
+		$DeathSound.play()
 		Global.increaseScore(point_value)
-		queue_free()
+		$ExplosionEffect.show()
+		$ExplosionEffect.play("default")
+		$deathTimer.start()
 
 
 func _on_bot_melee_attack_in_range():
 	inRange = !inRange
+
+
+
+func _on_death_timer_timeout():
+	kill()

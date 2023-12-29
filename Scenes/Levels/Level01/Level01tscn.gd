@@ -10,7 +10,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	getPause()
 	pass
 
 func game_start():
@@ -19,6 +18,7 @@ func game_start():
 	$Delivery_System/delivery_spawn.spawn_package_pick_up()
 	$GameCountdownTimer.resetToDefault()
 	$GameCountdownTimer.start()
+	$LevelMusic.play()
 	
 	
 func game_over():

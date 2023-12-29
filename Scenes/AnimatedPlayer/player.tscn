@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dtvqyc34g0n52"]
+[gd_scene load_steps=74 format=3 uid="uid://dtvqyc34g0n52"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player_v2.gd" id="1_ewvlo"]
 [ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/New assets/Car/Player_blue (16 x 16).png" id="2_fgpf3"]
@@ -53,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://qokj46bbd7fr" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_047.png" id="51_4kc1v"]
 [ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/health_component.tscn" id="52_jy77m"]
 [ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="53_waes6"]
+[ext_resource type="AudioStream" uid="uid://bw0ljw1ss772g" path="res://Audio/SFX/sfx_wpn_laser7.wav" id="54_xoicc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wg4r"]
 
@@ -427,6 +428,9 @@ one_shot = true
 
 [node name="InvulnerabilityFlicker" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="WeponSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("54_xoicc")
 
 [connection signal="entityDamaged" from="HitBoxComponent" to="." method="_on_hit_box_component_entity_damaged"]
 [connection signal="healthChanged" from="HealthComponent" to="." method="_on_health_component_health_changed"]

@@ -9,8 +9,7 @@ var target = self.global_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Sprite2D.self_modulate = Color(1, 0, 0, 1)
-#	self.hide()
+	self.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

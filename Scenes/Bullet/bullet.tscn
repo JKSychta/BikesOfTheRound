@@ -28,7 +28,7 @@ scale = Vector2(0.20842, 0.413947)
 
 [node name="HitBoxComponent" parent="." instance=ExtResource("3_npj6v")]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 18
 
 [node name="HitboxShape" type="CollisionShape2D" parent="HitBoxComponent"]
 rotation = 1.5708

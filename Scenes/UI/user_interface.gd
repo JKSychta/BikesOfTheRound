@@ -20,9 +20,6 @@ func _process(delta):
 	navigationArrow.rotation = playerPosition.angle_to_point(currentTarget) + deg_to_rad(90)
 	if !gameOver:
 		get_input()
-#	print(rad_to_deg(playerPosition.angle_to_point(currentTarget)))
-	
-#	navigationArrow.rotate(deg_to_rad(15))
 	
 
 func _on_player_player_global_position(player_global_position):
@@ -66,6 +63,7 @@ func get_input():
 			$PauseButton.hide()
 			$UnpauseButton.show()
 			$PauseMenuOverlay.show()
+			$PauseMenuOverlay/VBoxContainer/ContinueButton.grab_focus()
 		else:
 			get_tree().paused = false
 			paused = false
@@ -99,4 +97,7 @@ func game_over():
 	gameOver = true
 	get_tree().paused = true
 	$GameOverOverlay.show()
+	$GameOverOverlay/VBoxContainer/RetryButton.grab_focus()
+
+	
 	

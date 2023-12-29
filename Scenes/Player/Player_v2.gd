@@ -124,6 +124,7 @@ func shoot():
 		b.transform = muzzle.global_transform #Shoots it from the BulletSpawn Marker2D
 		shot_ready = false
 		$FireRate.start()
+		$WeponSound.play()
 
 func _on_fire_rate_timeout():
 	shot_ready = true

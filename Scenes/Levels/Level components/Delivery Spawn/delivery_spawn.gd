@@ -16,6 +16,7 @@ func _process(delta):
 	pass
 
 func spawn_package_pick_up():
+	self.show()
 	var package = packagePickUp.instantiate()
 	package.package_picked_up.connect(on_package_picked_up)
 	add_child(package)
