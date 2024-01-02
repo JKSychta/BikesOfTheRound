@@ -100,23 +100,6 @@ texture = ExtResource("6_5ltct")
 region_enabled = true
 region_rect = Rect2(0, 1, 16, 16)
 
-[node name="PauseButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = -512.0
-offset_top = 94.5674
-offset_right = -444.0
-offset_bottom = 122.567
-text = "PAUSE"
-
-[node name="UnpauseButton" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = -512.0
-offset_top = 134.809
-offset_right = -420.0
-offset_bottom = 162.809
-text = "Unpause"
-
 [node name="PauseMenuOverlay" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
@@ -221,8 +204,6 @@ text = "Another round"
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="UnpauseButton" to="." method="_on_unpause_button_pressed"]
 [connection signal="pressed" from="PauseMenuOverlay/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenuOverlay/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="GameOverOverlay/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]

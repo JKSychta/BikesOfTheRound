@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dtvqyc34g0n52"]
+[gd_scene load_steps=76 format=3 uid="uid://dtvqyc34g0n52"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player_v2.gd" id="1_ewvlo"]
 [ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/New assets/Car/Player_blue (16 x 16).png" id="2_fgpf3"]
@@ -54,6 +54,8 @@
 [ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/health_component.tscn" id="52_jy77m"]
 [ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="53_waes6"]
 [ext_resource type="AudioStream" uid="uid://bw0ljw1ss772g" path="res://Audio/SFX/sfx_wpn_laser7.wav" id="54_xoicc"]
+[ext_resource type="AudioStream" uid="uid://bgpp3y06nnxac" path="res://Audio/SFX/loop_5.wav" id="55_qe3bs"]
+[ext_resource type="AudioStream" uid="uid://cf3m6mmbexd0l" path="res://Audio/SFX/loop_0(1).wav" id="56_ofahl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wg4r"]
 
@@ -431,6 +433,13 @@ wait_time = 0.1
 
 [node name="WeponSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("54_xoicc")
+
+[node name="EngineActive" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("55_qe3bs")
+volume_db = 8.412
+
+[node name="EngineIdle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("56_ofahl")
 
 [connection signal="entityDamaged" from="HitBoxComponent" to="." method="_on_hit_box_component_entity_damaged"]
 [connection signal="healthChanged" from="HealthComponent" to="." method="_on_health_component_health_changed"]

@@ -1810,7 +1810,7 @@ enemy_count = 3
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_cshap")
-volume_db = -5.584
+volume_db = -11.702
 
 [connection signal="healthChanged" from="Player" to="Player/CanvasLayer/User_Interface" method="_on_player_health_changed"]
 [connection signal="packageDelivered" from="Player" to="GameCountdownTimer" method="_on_player_package_delivered"]

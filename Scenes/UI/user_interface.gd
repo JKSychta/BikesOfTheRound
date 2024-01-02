@@ -43,32 +43,18 @@ func _on_player_health_changed(health):
 	$LivesText.lives = health
 
 
-func _on_pause_button_pressed():
-	get_tree().paused = true
-	$PauseButton.hide()
-	$UnpauseButton.show()
-
-
-func _on_unpause_button_pressed():
-	get_tree().paused = false
-	print('PRESSED UNPAUSE')
-	$PauseButton.show()
-	$UnpauseButton.hide()
 	
 func get_input():
 	if Input.is_action_just_pressed("escape"):
 		if !paused:
 			get_tree().paused = true
 			paused = true
-			$PauseButton.hide()
-			$UnpauseButton.show()
 			$PauseMenuOverlay.show()
 			$PauseMenuOverlay/VBoxContainer/ContinueButton.grab_focus()
 		else:
 			get_tree().paused = false
 			paused = false
-			$PauseButton.show()
-			$UnpauseButton.hide()
+
 			$PauseMenuOverlay.hide()
 			
 
@@ -76,8 +62,6 @@ func get_input():
 func _on_continue_button_pressed():
 	get_tree().paused = false
 	paused = false
-	$PauseButton.show()
-	$UnpauseButton.hide()
 	$PauseMenuOverlay.hide()
 			
 

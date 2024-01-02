@@ -8,7 +8,7 @@ signal healthChanged(health)
 #define the distance between front and back based on the sprite
 var wheel_base = 16 # 16 is the height of our current sprite
 #define the angle at which the wheels will turn
-@export var steering_angle_degrees = 20
+@export var steering_angle_degrees := 20
 var steereing_angle = deg_to_rad(steering_angle_degrees)
 #the speed whith wich the car will accelerate
 @export var speed = 600
@@ -37,11 +37,12 @@ func _ready():
 	$FireRate.wait_time = fire_rate
 	pass
 
-#called every phisics engine tick
+## Called every phisics engine tick, handles most of the logic
 func _physics_process(delta):
 	emit_signal("player_global_position", global_position)
 	acceleration = Vector2.ZERO
 	get_input()
+	engineSoundFX()
 	apply_friction()
 	calculate_steering(delta)
 	velocity += acceleration * delta
@@ -50,6 +51,7 @@ func _physics_process(delta):
 #	animate_sprite()
 	var temp_velocity = velocity
 	move_and_slide()
+	print(velocity.length())
 	## Bounce check
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
@@ -57,6 +59,7 @@ func _physics_process(delta):
 			velocity = temp_velocity.bounce(collision.get_normal()) * 0.7
 	
 
+## Dodaje tarcie dając uczucie stopniowego zwalniania pojazdu gracza
 func apply_friction():
 	if velocity.length() < 5:
 		velocity = Vector2.ZERO
@@ -169,5 +172,18 @@ func _on_invulnerability_flicker_timeout():
 		$Sprite2D.modulate = Color.RED
 	else:
 		$Sprite2D.modulate = oldModulate
-	!flickerSwitch
+	flickerSwitch = !flickerSwitch
+	
+func engineSoundFX():
+#	var absoluteVelocity = abs(velocity.length())
+#	var mappedAbsVelocity = remap(absoluteVelocity, 0, 400, 0, 16)
+#	engineSound.pitch_scale = mappedAbsVelocity
+	if Input.is_action_pressed("accelerate") || Input.is_action_pressed("joy_accelerate") || Input.is_action_pressed("break") || Input.is_action_pressed("joy_brake"):
+		$EngineActive.play()
+		$EngineIdle.stop()
+	else:
+		$EngineActive.stop()
+		$EngineIdle.play()
+	pass
+	
 
