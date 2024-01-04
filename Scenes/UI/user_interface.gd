@@ -32,11 +32,9 @@ func _on_delivery_spawn_navigation_target_spawn(target):
 	$NavigationArrow.self_modulate = Color.RED
 
 
-
 func _on_delivery_system_navigation_target(target):
 	currentTarget = target  # Replace with function body.
 	$NavigationArrow.self_modulate = Color.GREEN
-
 
 
 func _on_player_health_changed(health):
@@ -54,7 +52,6 @@ func get_input():
 		else:
 			get_tree().paused = false
 			paused = false
-
 			$PauseMenuOverlay.hide()
 			
 
@@ -63,8 +60,7 @@ func _on_continue_button_pressed():
 	get_tree().paused = false
 	paused = false
 	$PauseMenuOverlay.hide()
-			
-
+	
 
 func _on_quit_button_pressed():
 	get_tree().paused = false
@@ -74,6 +70,7 @@ func _on_quit_button_pressed():
 func _on_retry_button_pressed():
 	emit_signal("retry")
 	$GameOverOverlay.hide()
+	$GameOverOverlay/GameOverJingle.stop()
 	gameOver = false
 	get_tree().paused = false
 	
@@ -82,6 +79,8 @@ func game_over():
 	get_tree().paused = true
 	$GameOverOverlay.show()
 	$GameOverOverlay/VBoxContainer/RetryButton.grab_focus()
+	$GameOverOverlay/GameOverJingle.play()
+	
 
 	
 	

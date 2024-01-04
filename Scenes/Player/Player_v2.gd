@@ -134,13 +134,13 @@ func _on_fire_rate_timeout():
 
 func package_picked_up():
 	holding_delivery = true
-	print("AQUIRED PACKAGE")
+#	print("AQUIRED PACKAGE")
 	
 func package_delivered() -> bool:
 	if holding_delivery:
 		holding_delivery = false
 		Global.increaseScore(1000)
-		print("DELIVERED PACKAGE")
+#		print("DELIVERED PACKAGE")
 		emit_signal('packageDelivered')
 		return true
 	else:

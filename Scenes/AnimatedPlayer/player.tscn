@@ -1,6 +1,6 @@
-[gd_scene load_steps=76 format=3 uid="uid://dtvqyc34g0n52"]
+[gd_scene load_steps=77 format=3 uid="uid://dtvqyc34g0n52"]
 
-[ext_resource type="Script" path="res://Scenes/Player/Player_v2.gd" id="1_ewvlo"]
+[ext_resource type="Script" path="res://Scenes/AnimatedPlayer/Player_v2.gd" id="1_qetgv"]
 [ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/New assets/Car/Player_blue (16 x 16).png" id="2_fgpf3"]
 [ext_resource type="Texture2D" uid="uid://cph1d7bmjnmim" path="res://Art/PlayerCarSprites/Civic/Sheet/Green_CIVIC_CLEAN_8D_000-sheet.png" id="3_aiwbe"]
 [ext_resource type="Texture2D" uid="uid://cihhwrn41x082" path="res://Art/PlayerCarSprites/Civic/SEPARATED/Green_CIVIC_CLEAN_All_000.png" id="4_htffl"]
@@ -56,6 +56,7 @@
 [ext_resource type="AudioStream" uid="uid://bw0ljw1ss772g" path="res://Audio/SFX/sfx_wpn_laser7.wav" id="54_xoicc"]
 [ext_resource type="AudioStream" uid="uid://bgpp3y06nnxac" path="res://Audio/SFX/loop_5.wav" id="55_qe3bs"]
 [ext_resource type="AudioStream" uid="uid://cf3m6mmbexd0l" path="res://Audio/SFX/loop_0(1).wav" id="56_ofahl"]
+[ext_resource type="AudioStream" uid="uid://bshbcb7212oqp" path="res://Audio/SFX/Car_Hood_Close.ogg" id="57_7injf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wg4r"]
 
@@ -375,7 +376,7 @@ rotation = 10.9956
 collision_layer = 5
 collision_mask = 26
 platform_floor_layers = 4294967265
-script = ExtResource("1_ewvlo")
+script = ExtResource("1_qetgv")
 metadata/_edit_vertical_guides_ = [-8.0, 8.0, 26.0, -30.0]
 metadata/_edit_horizontal_guides_ = [-8.0, 8.0, -15.0, 22.0]
 
@@ -436,10 +437,12 @@ stream = ExtResource("54_xoicc")
 
 [node name="EngineActive" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("55_qe3bs")
-volume_db = 8.412
 
 [node name="EngineIdle" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("56_ofahl")
+
+[node name="DamgeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("57_7injf")
 
 [connection signal="entityDamaged" from="HitBoxComponent" to="." method="_on_hit_box_component_entity_damaged"]
 [connection signal="healthChanged" from="HealthComponent" to="." method="_on_health_component_health_changed"]
