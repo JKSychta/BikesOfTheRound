@@ -7,11 +7,12 @@
 radius = 60.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_gfpnu"]
-line_spacing = 10.0
+line_spacing = 32.0
 
 [node name="Enemy_Spawner" type="Node2D"]
 position = Vector2(0, -1)
 script = ExtResource("1_pigtw")
+respawn_time = 30
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

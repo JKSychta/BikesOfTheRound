@@ -422,7 +422,7 @@ debug_color = Color(0.996078, 0, 0.192157, 0.419608)
 START_HEALTH = 3
 
 [node name="FireRate" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.01
 one_shot = true
 
 [node name="Invulnerability" type="Timer" parent="."]
