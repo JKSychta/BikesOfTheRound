@@ -1685,6 +1685,8 @@ pattern_10 = SubResource("TileMapPattern_f0ov6")
 
 [node name="Level01" type="Node2D"]
 script = ExtResource("1_qoov8")
+metadata/_edit_horizontal_guides_ = [-210.0, 770.0]
+metadata/_edit_vertical_guides_ = [-577.0, 946.0]
 
 [node name="LevelTileSet" type="TileMap" parent="."]
 position = Vector2(1, -2)
@@ -1722,6 +1724,13 @@ max_speed_reverse = 380
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1.17655e-07, 6.10352e-05)
 zoom = Vector2(2, 2)
+process_callback = 0
+limit_left = -576
+limit_top = -210
+limit_right = 946
+limit_bottom = 770
+limit_smoothed = true
+editor_draw_limits = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 
