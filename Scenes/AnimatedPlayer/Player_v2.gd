@@ -11,14 +11,15 @@ var wheel_base = 16 # 16 is the height of our current sprite
 @export var steering_angle_degrees := 20
 var steereing_angle = deg_to_rad(steering_angle_degrees)
 #the speed whith wich the car will accelerate
-@export var speed = 600
-@export var braking = -450
-@export var max_speed_reverse = 250
-@export var friction_force = Vector2.ZERO
+@export var speed = 600 ## Speed with which the car will accelerate
+@export var braking = -450 ## Speed with which car deccelerate / accelerate backwards
+@export var max_speed_reverse = 250 ## Top speed for going in reverse
+@export var friction_force = Vector2.ZERO 
 @export var drag_force = Vector2.ZERO
 @export var slip_speed = 400
-@export var traction_fast = 0.1
-@export var traction_slow = 0.7
+## 
+@export var traction_fast = 0.1 ##
+@export var traction_slow = 0.7 ##
 @export var fire_rate: float = 0.5
 var Bullet: PackedScene = preload("res://Scenes/Bullet/bullet.tscn")
 @onready var muzzle = get_node("BulletSpawn")
@@ -49,7 +50,7 @@ func _physics_process(delta):
 	var temp_velocity = velocity
 	move_and_slide()
 	print(velocity.length())
-	## Bounce check
+	## Bounce check 
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
 		if collision != null:

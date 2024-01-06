@@ -207,6 +207,7 @@ text = "Quit"
 
 [node name="GameOverJingle" type="AudioStreamPlayer" parent="GameOverOverlay"]
 stream = ExtResource("8_78b6l")
+volume_db = -13.765
 
 [connection signal="pressed" from="PauseMenuOverlay/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenuOverlay/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
