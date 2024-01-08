@@ -43,6 +43,10 @@ func _on_health_component_health_depleated():
 		Global.increaseScore(point_value)
 		$ExplosionEffect.show()
 		$ExplosionEffect.play("default")
+		$CollisionShape2D.set_deferred("disabled", true)
+		$DetectionRadius.monitoring = false
+		$HitBoxComponent.monitorable = false
+		$BotMeleeAttack/AttackRange.monitoring = false
 		$deathTimer.start()
 
 

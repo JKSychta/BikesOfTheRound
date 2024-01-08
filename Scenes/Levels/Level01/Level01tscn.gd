@@ -42,6 +42,7 @@ func postionThePlayer():
 
 func _on_player_player_dead():
 	game_over()
+	$Player/CanvasLayer/User_Interface.game_over()
 	
 func spawnerKill():
 	get_tree().call_group("EnemySpawners", "killAll")
