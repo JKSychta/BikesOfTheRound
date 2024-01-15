@@ -31,8 +31,9 @@ var drag: float = -0.0015
 var angle
 var shot_ready :bool = true
 var holding_delivery:bool = false
-var oldModulate = self.modulate
-var flickerSwitch = true
+var oldModulate := self.modulate
+var flickerSwitch := true
+var invulnerable := false
 
 func _ready():
 	$FireRate.wait_time = fire_rate
@@ -156,11 +157,13 @@ func _on_health_component_health_changed(health):
 
 func _on_hit_box_component_entity_damaged():
 	$HitBoxComponent/CollisionShape2D.disabled = true
+	invulnerable = true
 	$Invulnerability.start()
 	$InvulnerabilityFlicker.start()
 
 func _on_invulnerability_timeout():
 	$HitBoxComponent/CollisionShape2D.disabled = false
+	invulnerable = false
 	$InvulnerabilityFlicker.stop()
 	$Sprite2D.modulate = oldModulate
 
