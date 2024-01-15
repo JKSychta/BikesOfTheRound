@@ -67,7 +67,7 @@ func apply_friction():
 		friction_force *= 3
 	acceleration += drag_force + friction_force
 
-#gathering the inputs from user
+## Gathering the inputs from user
 func get_input():
 	var turn = 0
 	if Input.is_action_pressed("joy_stick_right"):
@@ -173,9 +173,6 @@ func _on_invulnerability_flicker_timeout():
 	flickerSwitch = !flickerSwitch
 	
 func engineSoundFX():
-#	var absoluteVelocity = abs(velocity.length())
-#	var mappedAbsVelocity = remap(absoluteVelocity, 0, 400, 0, 16)
-#	engineSound.pitch_scale = mappedAbsVelocity
 	if Input.is_action_pressed("accelerate") || Input.is_action_pressed("joy_accelerate") || Input.is_action_pressed("break") || Input.is_action_pressed("joy_brake"):
 		$EngineActive.play()
 		$EngineIdle.stop()
