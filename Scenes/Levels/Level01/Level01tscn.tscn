@@ -1805,59 +1805,59 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Enemy_Spawner" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(272, 9)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner8" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-449, 177)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner11" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(790, 59)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner9" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(601, 108)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner10" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(591, -52)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner7" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(611, 301)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner6" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(66, 656)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner4" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-364, 651)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner5" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(628, 487)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner2" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-214, 5)
-enemy_count = 4
+enemy_count = 1
 
 [node name="Enemy_Spawner3" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-21, 295)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner12" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-201, 300)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner13" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-452, -33)
-enemy_count = 3
+enemy_count = 1
 
 [node name="Enemy_Spawner14" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-365, 454)
-enemy_count = 3
+enemy_count = 1
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_cshap")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://268igu727db7"]
+[gd_scene load_steps=22 format=3 uid="uid://268igu727db7"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/Bot_01/EnemyBot1.gd" id="1_e4jwv"]
-[ext_resource type="Texture2D" uid="uid://c47qfa16g5rxd" path="res://Art/Enemy/Bot_1/EnemyBot01v2.png" id="3_1eq3k"]
 [ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="3_adovc"]
+[ext_resource type="PackedScene" uid="uid://f65qq7gvhlgu" path="res://Scenes/Components/RandomSprite/RandomizedSprite.tscn" id="4_bmclr"]
 [ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/health_component.tscn" id="4_oxotc"]
 [ext_resource type="Script" path="res://Scenes/Enemy/Bot_01/BotMeleeAttack.gd" id="5_35t7t"]
+[ext_resource type="Texture2D" uid="uid://b0nj6jvmlgi0v" path="res://Art/Enemy/Bot_1/sheet/EnemyBot01v2-altsheet.png" id="5_g1hiw"]
 [ext_resource type="Texture2D" uid="uid://d1lg8aapuoudq" path="res://Art/Enemy/Bot_1/Bot_1_Attack/Bot_1_Melee_Attack_Animation1.svg" id="6_opge2"]
 [ext_resource type="Texture2D" uid="uid://bi0boj4fjv2pi" path="res://Art/Enemy/Bot_1/Bot_1_Attack/Bot_1_Melee_Attack_Animation2.svg" id="7_2uaei"]
 [ext_resource type="Texture2D" uid="uid://dtyde5ktksbb6" path="res://Art/Enemy/Bot_1/Bot_1_Attack/Bot_1_Melee_Attack_Animation3.svg" id="8_spvmq"]
@@ -99,10 +100,11 @@ position = Vector2(-1.49012e-08, 1.49012e-08)
 rotation = 0.785397
 shape = SubResource("RectangleShape2D_4c75q")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="RandomizedSprite" parent="." instance=ExtResource("4_bmclr")]
 rotation = 1.57079
-scale = Vector2(0.610228, 0.610228)
-texture = ExtResource("3_1eq3k")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_g1hiw")
+region_rect = Rect2(32, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.49012e-08, 1.49012e-08)

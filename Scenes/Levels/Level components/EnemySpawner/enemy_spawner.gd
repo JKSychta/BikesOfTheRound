@@ -39,7 +39,7 @@ func randomSpawnPoint():
 
 func _on_respawn_timer_timeout():
 	spawn()
-#	timer_label.hide()
+#	timer_label.hide()#
 	timer.start()
 
 
