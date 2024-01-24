@@ -12,7 +12,7 @@ var inRange := false
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 	if player:
-		if inRange == false && player.invulnerable == false:
+		if inRange == false:
 			var player_pos = player.position
 			look_at(player.position)
 			velocity = global_position.direction_to(player.global_position) * move_speed

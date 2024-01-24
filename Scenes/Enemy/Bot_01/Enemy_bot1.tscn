@@ -24,13 +24,13 @@ b = Vector2(11, 0)
 [sub_resource type="SpriteFrames" id="SpriteFrames_m57wp"]
 animations = [{
 "frames": [{
-"duration": 0.15,
+"duration": 0.2,
 "texture": ExtResource("6_opge2")
 }, {
-"duration": 0.15,
+"duration": 0.2,
 "texture": ExtResource("7_2uaei")
 }, {
-"duration": 0.15,
+"duration": 0.2,
 "texture": ExtResource("8_spvmq")
 }],
 "loop": true,
