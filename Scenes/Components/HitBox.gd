@@ -1,9 +1,9 @@
 extends Area2D
 
 signal entityDamaged
-@export var health_component : HealthComponent
+@export var healthComponent : HealthComponent
 
 func damage(attack: Attack):
-	if health_component:
-		health_component.damage(attack)
+	if healthComponent:
+		healthComponent.damage(attack)
 		emit_signal('entityDamaged')

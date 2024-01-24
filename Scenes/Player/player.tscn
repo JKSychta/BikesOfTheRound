@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/AnimatedPlayer/Player_v2.gd" id="1_tsxew"]
 [ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/Player/Car/Player_blue (16 x 16).png" id="2_6xl44"]
 [ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="52_gvo33"]
-[ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/health_component.tscn" id="53_genur"]
+[ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/HealthComponent/health_component.tscn" id="53_genur"]
 [ext_resource type="AudioStream" uid="uid://bw0ljw1ss772g" path="res://Audio/SFX/sfx_wpn_laser7.wav" id="54_cmfrh"]
 [ext_resource type="AudioStream" uid="uid://bgpp3y06nnxac" path="res://Audio/SFX/loop_5.wav" id="55_qibwk"]
 [ext_resource type="AudioStream" uid="uid://cf3m6mmbexd0l" path="res://Audio/SFX/loop_0(1).wav" id="56_v1x64"]
@@ -21,7 +21,6 @@ motion_mode = 1
 platform_floor_layers = 4294967265
 safe_margin = 1.0
 script = ExtResource("1_tsxew")
-fire_rate = 0.1
 metadata/_edit_vertical_guides_ = [-8.0, 8.0, 26.0, -30.0]
 metadata/_edit_horizontal_guides_ = [-8.0, 8.0, -15.0, 22.0]
 
@@ -46,9 +45,8 @@ position = Vector2(14.6763, -0.000112057)
 rotation = 1.5708
 scale = Vector2(-0.883376, -2.94882)
 
-[node name="HitBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("52_gvo33")]
+[node name="HitBoxComponent" parent="." instance=ExtResource("52_gvo33")]
 collision_mask = 2
-health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
 position = Vector2(-0.000139713, -0.0132847)
