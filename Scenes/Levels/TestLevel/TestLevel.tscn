@@ -1,14 +1,14 @@
 [gd_scene load_steps=24 format=3 uid="uid://jxwwx7bkd5ew"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Test Level/TestLevel.gd" id="1_f845d"]
+[ext_resource type="Script" path="res://Scenes/Levels/TestLevel/TestLevel.gd" id="1_f845d"]
 [ext_resource type="PackedScene" uid="uid://2qac47tfb0q3" path="res://Scenes/UI/user_interface.tscn" id="2_k1lms"]
-[ext_resource type="PackedScene" uid="uid://dtvqyc34g0n52" path="res://Scenes/AnimatedPlayer/player.tscn" id="3_6ybb7"]
-[ext_resource type="Texture2D" uid="uid://co33smbqo6sb1" path="res://Art/tilemap.png" id="3_olvaq"]
-[ext_resource type="PackedScene" uid="uid://bbk50naeyyv56" path="res://Scenes/Levels/Level components/Delivery Spawn/delivery_spawn.tscn" id="7_lvqpu"]
-[ext_resource type="PackedScene" uid="uid://dusg6jon1ohfk" path="res://Scenes/Levels/Level components/DeliveryPoint/delivery_point.tscn" id="7_nxsa3"]
-[ext_resource type="PackedScene" uid="uid://btw6cav5nog8a" path="res://Scenes/Levels/Level components/EnemySpawner/enemy_spawner.tscn" id="8_2371h"]
-[ext_resource type="Script" path="res://Scenes/Levels/Test Level/Delivery_System.gd" id="8_lal3y"]
-[ext_resource type="Script" path="res://Scenes/Levels/Test Level/GameCountdownTimer.gd" id="10_plrf8"]
+[ext_resource type="PackedScene" uid="uid://dtvqyc34g0n52" path="res://Scenes/Player/player.tscn" id="3_6ybb7"]
+[ext_resource type="Texture2D" uid="uid://co33smbqo6sb1" path="res://Art/Level/tilemap.png" id="3_olvaq"]
+[ext_resource type="PackedScene" uid="uid://bbk50naeyyv56" path="res://Scenes/Levels/LevelComponents/DeliverySpawn/delivery_spawn.tscn" id="7_lvqpu"]
+[ext_resource type="PackedScene" uid="uid://dusg6jon1ohfk" path="res://Scenes/Levels/LevelComponents/DeliveryPoint/delivery_point.tscn" id="7_nxsa3"]
+[ext_resource type="PackedScene" uid="uid://btw6cav5nog8a" path="res://Scenes/Levels/LevelComponents/EnemySpawner/enemy_spawner.tscn" id="8_2371h"]
+[ext_resource type="Script" path="res://Scenes/Levels/TestLevel/Delivery_System.gd" id="8_lal3y"]
+[ext_resource type="Script" path="res://Scenes/Levels/TestLevel/GameCountdownTimer.gd" id="10_plrf8"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_o27n8"]
 tile_data = PackedInt32Array(0, 524288, 0, 65536, 524288, 1, 131072, 524288, 2, 1, 589824, 0, 65537, 589824, 1, 131073, 589824, 2, 2, 655360, 0, 65538, 655360, 1, 131074, 655360, 2)

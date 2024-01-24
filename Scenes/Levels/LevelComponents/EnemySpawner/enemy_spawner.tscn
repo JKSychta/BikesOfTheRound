@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://btw6cav5nog8a"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Level components/EnemySpawner/enemy_spawner.gd" id="1_pigtw"]
-[ext_resource type="Script" path="res://Scenes/Levels/Level components/EnemySpawner/TimeDisplayLabel.gd" id="2_tolvk"]
+[ext_resource type="Script" path="res://Scenes/Levels/LevelComponents/EnemySpawner/enemy_spawner.gd" id="1_pigtw"]
+[ext_resource type="Script" path="res://Scenes/Levels/LevelComponents/EnemySpawner/TimeDisplayLabel.gd" id="2_tolvk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tqdtr"]
 radius = 60.0

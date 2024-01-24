@@ -1,9 +1,9 @@
 [gd_scene load_steps=22 format=3 uid="uid://268igu727db7"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/Bot_01/EnemyBot1.gd" id="1_e4jwv"]
-[ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="3_adovc"]
+[ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/HitBoxComponent/hitbox_component.tscn" id="3_adovc"]
 [ext_resource type="PackedScene" uid="uid://f65qq7gvhlgu" path="res://Scenes/Components/RandomSprite/RandomizedSprite.tscn" id="4_bmclr"]
-[ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/health_component.tscn" id="4_oxotc"]
+[ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/HealthComponent/health_component.tscn" id="4_oxotc"]
 [ext_resource type="Script" path="res://Scenes/Enemy/Bot_01/BotMeleeAttack.gd" id="5_35t7t"]
 [ext_resource type="Texture2D" uid="uid://b0nj6jvmlgi0v" path="res://Art/Enemy/Bot_1/sheet/EnemyBot01v2-altsheet.png" id="5_g1hiw"]
 [ext_resource type="Texture2D" uid="uid://d1lg8aapuoudq" path="res://Art/Enemy/Bot_1/Bot_1_Attack/Bot_1_Melee_Attack_Animation1.svg" id="6_opge2"]

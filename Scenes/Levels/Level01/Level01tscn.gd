@@ -23,7 +23,7 @@ func game_start():
 	
 func game_over():
 	spawnerKill()
-	$Player.holding_delivery = false
+	$Player.holdingDelivery = false
 	$Player.velocity = Vector2.ZERO
 	$Delivery_System.deselect_all()
 	Global.update_score()
@@ -36,7 +36,7 @@ func _on_game_countdown_timer_timeout():
 func postionThePlayer():
 	$Player.position = $PlayerSpawn.position
 	$Player.rotation = deg_to_rad(270)
-	$Player.holding_delivery = false
+	$Player.holdingDelivery = false
 	$Player.set_player_health()
 
 

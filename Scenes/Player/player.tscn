@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dtvqyc34g0n52"]
 
-[ext_resource type="Script" path="res://Scenes/AnimatedPlayer/Player_v2.gd" id="1_tsxew"]
+[ext_resource type="Script" path="res://Scenes/Player/Player_v2.gd" id="1_nh7ok"]
 [ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/Player/Car/Player_blue (16 x 16).png" id="2_6xl44"]
-[ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="52_gvo33"]
+[ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/HitBoxComponent/hitbox_component.tscn" id="52_gvo33"]
 [ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/HealthComponent/health_component.tscn" id="53_genur"]
 [ext_resource type="AudioStream" uid="uid://bw0ljw1ss772g" path="res://Audio/SFX/sfx_wpn_laser7.wav" id="54_cmfrh"]
 [ext_resource type="AudioStream" uid="uid://bgpp3y06nnxac" path="res://Audio/SFX/loop_5.wav" id="55_qibwk"]
@@ -20,7 +20,7 @@ collision_mask = 26
 motion_mode = 1
 platform_floor_layers = 4294967265
 safe_margin = 1.0
-script = ExtResource("1_tsxew")
+script = ExtResource("1_nh7ok")
 metadata/_edit_vertical_guides_ = [-8.0, 8.0, 26.0, -30.0]
 metadata/_edit_horizontal_guides_ = [-8.0, 8.0, -15.0, 22.0]
 
