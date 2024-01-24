@@ -89,12 +89,6 @@ func get_input():
 		acceleration = transform.x * speed * Input.get_action_strength("joy_accelerate")
 	if Input.is_action_pressed("shoot"):
 		shoot()
-#	if Input.is_action_just_pressed("escape"):
-###		get_tree().change_scene_to_file("res://Scenes/MainMenu/main_menu.tscn")
-#		if get_tree().paused:
-#			get_tree().paused = false
-#		else:
-#			get_tree().paused = true
 
 		
 ## Calculations required for steering		
