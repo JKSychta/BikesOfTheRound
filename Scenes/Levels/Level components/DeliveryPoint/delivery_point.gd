@@ -12,11 +12,6 @@ func _ready():
 	self.hide()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_area_2d_body_entered(body):
 	if targetPoint:
 		if body.has_method("package_delivered"):
@@ -28,11 +23,7 @@ func _on_area_2d_body_entered(body):
 func target_point_toggle():
 	targetPoint= !targetPoint
 	if targetPoint:
-#			$Sprite2D.self_modulate = Color(0, 1, 0, 1)
 			self.show()
-#			emit_signal("navigationTarget", self)
-
 	else:
-#			$Sprite2D.self_modulate = Color(1, 0, 0, 1)
 			self.hide()
 			
