@@ -7,7 +7,8 @@ signal navigationTargetSpawn(target)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_package_pick_up()
+	#spawn_package_pick_up()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,6 +16,7 @@ func _process(delta):
 	pass
 
 func spawn_package_pick_up():
+	self.show()
 	var package = packagePickUp.instantiate()
 	package.package_picked_up.connect(on_package_picked_up)
 	add_child(package)
@@ -22,4 +24,5 @@ func spawn_package_pick_up():
 	
 func on_package_picked_up():
 	emit_signal("deliveryPointSelect")
+	self.hide()
 

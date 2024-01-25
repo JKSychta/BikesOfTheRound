@@ -16,7 +16,8 @@ var startTimerCheck: bool = true
 func _ready():
 	spawn()
 	timer.wait_time = respawn_time
-	timer_label.hide()
+#	timer_label.hide()
+	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,7 +39,8 @@ func randomSpawnPoint():
 
 func _on_respawn_timer_timeout():
 	spawn()
-	timer_label.hide()
+#	timer_label.hide()#
+	timer.start()
 
 
 func _on_child_exiting_tree(node):
@@ -48,9 +50,10 @@ func _on_child_exiting_tree(node):
 
 
 func _on_everybody_dead():
-	if startTimerCheck:
-		timer.start()
-		timer_label.show()
+	pass
+#	if startTimerCheck:
+#		timer.start()
+#		timer_label.show()
 		
 func killAll():
 	startTimerCheck = false

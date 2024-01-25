@@ -5,11 +5,12 @@ class_name HealthComponent
 signal healthDepleated
 signal healthChanged(health: int)
 
-@export var START_HEALTH := 3
+@export var START_HEALTH := 10
 var health: int
 
 func _ready():
 	health = START_HEALTH
+	emit_signal('healthChanged', health)
 
 func damage(attack: Attack):
 	health -= attack.attack_damage

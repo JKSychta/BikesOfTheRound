@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6ca6kr81isqy"]
+[gd_scene load_steps=7 format=3 uid="uid://c6ca6kr81isqy"]
 
 [ext_resource type="Script" path="res://Scenes/Bullet/bullet.gd" id="1_7xv1h"]
 [ext_resource type="Texture2D" uid="uid://pduehhn6i0wn" path="res://Art/Player-projectile v2.svg" id="2_j8etb"]
+[ext_resource type="PackedScene" uid="uid://f65qq7gvhlgu" path="res://Scenes/Components/RandomSprite/RandomizedSprite.tscn" id="2_vfsaf"]
+[ext_resource type="Texture2D" uid="uid://djdxrudqhyrqe" path="res://Art/Projectiles/Player-projectile-v2-sheet.png" id="3_hykjp"]
 [ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="3_npj6v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_byt17"]
@@ -17,7 +19,14 @@ collision_mask = 22
 slide_on_ceiling = false
 script = ExtResource("1_7xv1h")
 
+[node name="RandomizedSprite" parent="." instance=ExtResource("2_vfsaf")]
+rotation = 1.57079
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("3_hykjp")
+region_rect = Rect2(0, 0, 32, 64)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 rotation = 1.5708
 scale = Vector2(0.129789, 0.13)
 texture = ExtResource("2_j8etb")
@@ -28,7 +37,7 @@ scale = Vector2(0.20842, 0.413947)
 
 [node name="HitBoxComponent" parent="." instance=ExtResource("3_npj6v")]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 18
 
 [node name="HitboxShape" type="CollisionShape2D" parent="HitBoxComponent"]
 rotation = 1.5708

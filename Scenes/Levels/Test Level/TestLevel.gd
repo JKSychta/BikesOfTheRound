@@ -33,3 +33,4 @@ func postionThePlayer():
 	$Player.position = $PlayerSpawn.position
 	$Player.rotation = deg_to_rad(270)
 	$Player.holding_delivery = false
+	$Player.set_player_health()

@@ -9,8 +9,7 @@ var target = self.global_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Sprite2D.self_modulate = Color(1, 0, 0, 1)
-#	self.hide()
+	self.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,11 +28,11 @@ func _on_area_2d_body_entered(body):
 func target_point_toggle():
 	targetPoint= !targetPoint
 	if targetPoint:
-			$Sprite2D.self_modulate = Color(0, 1, 0, 1)
-#			self.show()
+#			$Sprite2D.self_modulate = Color(0, 1, 0, 1)
+			self.show()
 #			emit_signal("navigationTarget", self)
 
 	else:
-			$Sprite2D.self_modulate = Color(1, 0, 0, 1)
-#			self.hide()
+#			$Sprite2D.self_modulate = Color(1, 0, 0, 1)
+			self.hide()
 			

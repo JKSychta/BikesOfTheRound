@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2qac47tfb0q3"]
+[gd_scene load_steps=15 format=3 uid="uid://2qac47tfb0q3"]
 
 [ext_resource type="Script" path="res://Scenes/UI/user_interface.gd" id="1_0an6c"]
 [ext_resource type="Script" path="res://Scenes/UI/Score.gd" id="1_5cdok"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://duwb55u2t1jcb" path="res://Art/UI/NavArrow.png" id="3_aynal"]
 [ext_resource type="Script" path="res://Scenes/UI/LivesText.gd" id="5_nm80i"]
 [ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/New assets/Car/Player_blue (16 x 16).png" id="6_5ltct"]
+[ext_resource type="Script" path="res://Scenes/UI/FinalScoreLabel.gd" id="7_wfeim"]
+[ext_resource type="AudioStream" uid="uid://dd1oirdkwp1r6" path="res://Audio/Music/Casey Frantum - Game Over Jingles Pack - 57 Sega Deth.wav" id="8_78b6l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v61rj"]
 line_spacing = 0.0
@@ -19,7 +21,17 @@ font_size = 14
 [sub_resource type="LabelSettings" id="LabelSettings_ywp4f"]
 font = ExtResource("2_ihdsj")
 
+[sub_resource type="LabelSettings" id="LabelSettings_11glj"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_qdbmw"]
+font_size = 39
+
+[sub_resource type="LabelSettings" id="LabelSettings_2mtki"]
+font_size = 42
+
 [node name="User_Interface" type="Control"]
+process_mode = 3
 top_level = true
 layout_mode = 3
 anchors_preset = 15
@@ -34,8 +46,8 @@ grow_vertical = 2
 scale = Vector2(1, 0.994)
 script = ExtResource("1_0an6c")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_vertical_guides_ = [8.0, 1144.0]
-metadata/_edit_horizontal_guides_ = [16.0]
+metadata/_edit_vertical_guides_ = [576.0, 1144.0]
+metadata/_edit_horizontal_guides_ = [16.0, 320.0]
 
 [node name="Points" type="Label" parent="."]
 layout_mode = 1
@@ -85,7 +97,119 @@ script = ExtResource("5_nm80i")
 
 [node name="LivesIcon" type="Sprite2D" parent="LivesText"]
 position = Vector2(-8.00012, 12.0724)
-scale = Vector2(1, 1)
 texture = ExtResource("6_5ltct")
 region_enabled = true
 region_rect = Rect2(0, 1, 16, 16)
+
+[node name="PauseMenuOverlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = -576.0
+offset_top = -10.0604
+offset_right = -536.0
+offset_bottom = 29.9396
+grow_horizontal = 2
+scale = Vector2(31.4782, 17.7136)
+color = Color(0.207843, 0.207843, 0.207843, 0.823529)
+
+[node name="Label" type="Label" parent="PauseMenuOverlay"]
+layout_mode = 0
+offset_left = 13.7238
+offset_top = 11.3589
+offset_right = 133.724
+offset_bottom = 54.3589
+scale = Vector2(0.107335, 0.107335)
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_11glj")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenuOverlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.2652
+offset_top = 17.2656
+offset_right = 80.2652
+offset_bottom = 37.2656
+grow_horizontal = 2
+scale = Vector2(0.0659886, 0.130159)
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="PauseMenuOverlay/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Continue"
+
+[node name="QuitButton" type="Button" parent="PauseMenuOverlay/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="GameOverOverlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -536.0
+offset_top = -2.01207
+offset_right = 624.0
+offset_bottom = 647.988
+grow_horizontal = 2
+color = Color(1, 0, 0, 0.333333)
+
+[node name="GameOverLabel" type="Label" parent="GameOverOverlay"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 6.10352e-05
+offset_top = 30.1811
+offset_bottom = 134.181
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_qdbmw")
+horizontal_alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="GameOverOverlay"]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 142.857
+offset_right = 760.0
+offset_bottom = 254.857
+text = "Final Score
+9999"
+label_settings = SubResource("LabelSettings_2mtki")
+horizontal_alignment = 1
+script = ExtResource("7_wfeim")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverOverlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_right = 0.993
+anchor_bottom = 0.987
+offset_left = 487.88
+offset_top = 303.823
+offset_right = -491.88
+offset_bottom = -273.727
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RetryButton" type="Button" parent="GameOverOverlay/VBoxContainer"]
+layout_mode = 2
+text = "Another round"
+
+[node name="QuitButton" type="Button" parent="GameOverOverlay/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="GameOverJingle" type="AudioStreamPlayer" parent="GameOverOverlay"]
+stream = ExtResource("8_78b6l")
+volume_db = -13.765
+
+[connection signal="pressed" from="PauseMenuOverlay/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenuOverlay/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="GameOverOverlay/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="GameOverOverlay/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
