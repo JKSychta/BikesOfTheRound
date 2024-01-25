@@ -11,30 +11,31 @@ var wheel_base = 16 # 16 is the height of our current sprite
 @export var steering_angle_degrees := 20
 var steereing_angle = deg_to_rad(steering_angle_degrees)
 #the speed whith wich the car will accelerate
-@export var speed = 600
-@export var braking = -450
-@export var maxSpeedReverse = 250
-@export var frictionForce = Vector2.ZERO
-@export var dragForce = Vector2.ZERO
-@export var slipSpeed = 400
-@export var tractionFast = 0.1
-@export var tractionSlow = 0.7
-@export var fireRate: float = 0.5
+@export var speed = 600 ## Speed with which the car will accelerate
+@export var braking = -450 ## Speed with which car deccelerate / accelerate backwards
+@export var max_speed_reverse = 250 ## Top speed for going in reverse
+@export var friction_force = Vector2.ZERO 
+@export var drag_force = Vector2.ZERO
+@export var slip_speed = 400
+## 
+@export var traction_fast = 0.1 ##
+@export var traction_slow = 0.7 ##
+@export var fire_rate: float = 0.5
 var Bullet: PackedScene = preload("res://Scenes/Bullet/bullet.tscn")
 @onready var muzzle = get_node("BulletSpawn")
 #predefined variables
 var acceleration := Vector2.ZERO
-var steerAngle
+var steer_angle
 var friction: float = -0.9
 var drag: float = -0.0015
 var angle
-var shotReady :bool = true
-var holdingDelivery:bool = false
+var shot_ready :bool = true
+var holding_delivery:bool = false
 var oldModulate = self.modulate
 var flickerSwitch = true
 
 func _ready():
-	$FireRate.wait_time = fireRate
+	$FireRate.wait_time = fire_rate
 	pass
 
 ## Called every phisics engine tick, handles most of the logic
@@ -49,7 +50,7 @@ func _physics_process(delta):
 	var temp_velocity = velocity
 	move_and_slide()
 	print(velocity.length())
-	## Bounce check
+	## Bounce check 
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
 		if collision != null:
@@ -60,13 +61,13 @@ func _physics_process(delta):
 func apply_friction():
 	if velocity.length() < 5:
 		velocity = Vector2.ZERO
-	frictionForce = velocity * friction
-	dragForce = velocity * velocity.length() * drag
+	friction_force = velocity * friction
+	drag_force = velocity * velocity.length() * drag
 	if velocity.length() < 100:
-		frictionForce *= 3
-	acceleration += dragForce + frictionForce
+		friction_force *= 3
+	acceleration += drag_force + friction_force
 
-#gathering the inputs from user
+## Gathering the inputs from user
 func get_input():
 	var turn = 0
 	if Input.is_action_pressed("joy_stick_right"):
@@ -77,7 +78,7 @@ func get_input():
 		turn -= Input.get_action_strength("joy_stick_left")
 	if Input.is_action_pressed("turn_left"):
 		turn -= 1
-	steerAngle = turn * steereing_angle
+	steer_angle = turn * steereing_angle
 	if Input.is_action_pressed("down"):
 		acceleration = transform.x * braking
 	if Input.is_action_pressed("joy_brake"):
@@ -90,48 +91,47 @@ func get_input():
 		shoot()
 
 		
-#Calculations required for steering		
-#It establishes the position of front and back "wheels" then uses it to turn the sprite from the front like a vehicle would
+## Calculations required for steering		
+## It establishes the position of front and back "wheels" then uses it to turn the sprite from the front like a vehicle would
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2.0
 	var front_wheel = position + transform.x * wheel_base / 2.0
 	rear_wheel += velocity * delta
-	front_wheel += velocity.rotated(steerAngle)*delta
+	front_wheel += velocity.rotated(steer_angle)*delta
 	var new_heading = (front_wheel - rear_wheel).normalized()
-	var traction = tractionSlow
-	if velocity.length() > slipSpeed:
-		traction = tractionFast
+	var traction = traction_slow
+	if velocity.length() > slip_speed:
+		traction = traction_fast
 	var d = new_heading.dot(velocity.normalized())
 	if d > 0:
 		velocity = velocity.lerp(new_heading * velocity.length(), traction) 
 	if d < 0:
-		velocity = -new_heading * min(velocity.length(), maxSpeedReverse)
+		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 	
 
 #Shooting for the player
 func shoot():
-	if shotReady:
+	if shot_ready:
 		var b = Bullet.instantiate() #creates an instance of a Bullet Scene
 		owner.add_child(b) #Adds it to the player
 	#	b.angle = deg_to_rad(0)
 		b.transform = muzzle.global_transform #Shoots it from the BulletSpawn Marker2D
-		shotReady = false
+		shot_ready = false
 		$FireRate.start()
 		$WeponSound.play()
 
-func _on_fireRate_timeout():
-	shotReady = true
+func _on_fire_rate_timeout():
+	shot_ready = true
 
 func package_picked_up():
-	holdingDelivery = true
+	holding_delivery = true
 #	print("AQUIRED PACKAGE")
 	
 func package_delivered() -> bool:
-	if holdingDelivery:
-		holdingDelivery = false
+	if holding_delivery:
+		holding_delivery = false
 		Global.increaseScore(1000)
-#		print("DELIVERED PACKAGE")
 		emit_signal('packageDelivered')
 		return true
 	else:
@@ -145,6 +145,7 @@ func _on_health_component_health_depleated():
 
 
 func _on_health_component_health_changed(health):
+	$DamgeSound.play()
 	emit_signal('healthChanged', health)
 
 func _on_hit_box_component_entity_damaged():

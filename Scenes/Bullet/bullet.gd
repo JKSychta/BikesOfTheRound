@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var attackDamage = 3
+@export var attack_damage = 3
 #@export var knockback_force = 10 
 var speed = 400
 
@@ -20,7 +20,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_hit_box_component_body_entered(body):
 	if body.has_method("damage"):
 		var attack = Attack.new()
-		attack.attackDamage = attackDamage
+		attack.attack_damage = attack_damage
 #		attack.knockback_force = knockback_force
 		body.damage(attack)
 	queue_free() 
@@ -30,7 +30,7 @@ func _on_hit_box_component_body_entered(body):
 func _on_hit_box_component_area_entered(area):
 	if area.has_method("damage"):
 		var attack = Attack.new()
-		attack.attackDamage = attackDamage
+		attack.attack_damage = attack_damage
 #		attack.knockback_force = knockback_force
 		area.damage(attack)
 	queue_free() 

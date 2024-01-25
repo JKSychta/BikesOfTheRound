@@ -1,13 +1,193 @@
 [gd_scene load_steps=11 format=3 uid="uid://dtvqyc34g0n52"]
 
-[ext_resource type="Script" path="res://Scenes/Player/Player_v2.gd" id="1_nh7ok"]
 [ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/Player/Car/Player_blue (16 x 16).png" id="2_6xl44"]
-[ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/HitBoxComponent/hitbox_component.tscn" id="52_gvo33"]
-[ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/HealthComponent/health_component.tscn" id="53_genur"]
+[ext_resource type="PackedScene" uid="uid://b78ktyqyvqgdo" path="res://Scenes/Components/hitbox_component.tscn" id="52_gvo33"]
+[ext_resource type="PackedScene" uid="uid://dbsliipb1ca80" path="res://Scenes/Components/health_component.tscn" id="53_genur"]
 [ext_resource type="AudioStream" uid="uid://bw0ljw1ss772g" path="res://Audio/SFX/sfx_wpn_laser7.wav" id="54_cmfrh"]
 [ext_resource type="AudioStream" uid="uid://bgpp3y06nnxac" path="res://Audio/SFX/loop_5.wav" id="55_qibwk"]
 [ext_resource type="AudioStream" uid="uid://cf3m6mmbexd0l" path="res://Audio/SFX/loop_0(1).wav" id="56_v1x64"]
 [ext_resource type="AudioStream" uid="uid://bshbcb7212oqp" path="res://Audio/SFX/Car_Hood_Close.ogg" id="57_u6wl4"]
+
+[sub_resource type="GDScript" id="GDScript_m0gfk"]
+script/source = "extends CharacterBody2D
+##This is the player node 
+signal player_global_position(playerGlobalPosition)
+signal packageDelivered
+signal playerDead
+signal healthChanged(health)
+
+#define the distance between front and back based on the sprite
+var wheel_base = 16 # 16 is the height of our current sprite
+#define the angle at which the wheels will turn
+@export var steering_angle_degrees := 20
+var steereing_angle = deg_to_rad(steering_angle_degrees)
+#the speed whith wich the car will accelerate
+@export var speed = 600 ## Speed with which the car will accelerate
+@export var braking = -450 ## Speed with which car deccelerate / accelerate backwards
+@export var max_speed_reverse = 250 ## Top speed for going in reverse
+@export var friction_force = Vector2.ZERO 
+@export var drag_force = Vector2.ZERO
+@export var slip_speed = 400
+## 
+@export var traction_fast = 0.1 ##
+@export var traction_slow = 0.7 ##
+@export var fire_rate: float = 0.5
+var Bullet: PackedScene = preload(\"res://Scenes/Bullet/bullet.tscn\")
+@onready var muzzle = get_node(\"BulletSpawn\")
+#predefined variables
+var acceleration := Vector2.ZERO
+var steer_angle
+var friction: float = -0.9
+var drag: float = -0.0015
+var angle
+var shot_ready :bool = true
+var holding_delivery:bool = false
+var oldModulate = self.modulate
+var flickerSwitch = true
+
+func _ready():
+	$FireRate.wait_time = fire_rate
+	pass
+
+## Called every phisics engine tick, handles most of the logic
+func _physics_process(delta):
+	emit_signal(\"player_global_position\", global_position)
+	acceleration = Vector2.ZERO
+	get_input()
+	engineSoundFX()
+	apply_friction()
+	calculate_steering(delta)
+	velocity += acceleration * delta
+	var temp_velocity = velocity
+	move_and_slide()
+	print(velocity.length())
+	## Bounce check 
+	if get_slide_collision_count() > 0:
+		var collision = get_slide_collision(0)
+		if collision != null:
+			velocity = temp_velocity.bounce(collision.get_normal()) * 0.7
+	
+
+## Dodaje tarcie dając uczucie stopniowego zwalniania pojazdu gracza
+func apply_friction():
+	if velocity.length() < 5:
+		velocity = Vector2.ZERO
+	friction_force = velocity * friction
+	drag_force = velocity * velocity.length() * drag
+	if velocity.length() < 100:
+		friction_force *= 3
+	acceleration += drag_force + friction_force
+
+## Gathering the inputs from user
+func get_input():
+	var turn = 0
+	if Input.is_action_pressed(\"joy_stick_right\"):
+		turn += Input.get_action_strength(\"joy_stick_right\")
+	if Input.is_action_pressed(\"turn_right\"):
+		turn += 1
+	if Input.is_action_pressed(\"joy_stick_left\"):
+		turn -= Input.get_action_strength(\"joy_stick_left\")
+	if Input.is_action_pressed(\"turn_left\"):
+		turn -= 1
+	steer_angle = turn * steereing_angle
+	if Input.is_action_pressed(\"down\"):
+		acceleration = transform.x * braking
+	if Input.is_action_pressed(\"joy_brake\"):
+		acceleration = transform.x * braking * Input.get_action_strength(\"joy_brake\")
+	if Input.is_action_pressed(\"accelerate\"):
+		acceleration = transform.x * speed
+	if Input.is_action_pressed(\"joy_accelerate\"):
+		acceleration = transform.x * speed * Input.get_action_strength(\"joy_accelerate\")
+	if Input.is_action_pressed(\"shoot\"):
+		shoot()
+
+		
+## Calculations required for steering		
+## It establishes the position of front and back \"wheels\" then uses it to turn the sprite from the front like a vehicle would
+func calculate_steering(delta):
+	var rear_wheel = position - transform.x * wheel_base / 2.0
+	var front_wheel = position + transform.x * wheel_base / 2.0
+	rear_wheel += velocity * delta
+	front_wheel += velocity.rotated(steer_angle)*delta
+	var new_heading = (front_wheel - rear_wheel).normalized()
+	var traction = traction_slow
+	if velocity.length() > slip_speed:
+		traction = traction_fast
+	var d = new_heading.dot(velocity.normalized())
+	if d > 0:
+		velocity = velocity.lerp(new_heading * velocity.length(), traction) 
+	if d < 0:
+		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
+	rotation = new_heading.angle()
+	
+
+#Shooting for the player
+func shoot():
+	if shot_ready:
+		var b = Bullet.instantiate() #creates an instance of a Bullet Scene
+		owner.add_child(b) #Adds it to the player
+	#	b.angle = deg_to_rad(0)
+		b.transform = muzzle.global_transform #Shoots it from the BulletSpawn Marker2D
+		shot_ready = false
+		$FireRate.start()
+		$WeponSound.play()
+
+func _on_fire_rate_timeout():
+	shot_ready = true
+
+func package_picked_up():
+	holding_delivery = true
+#	print(\"AQUIRED PACKAGE\")
+	
+func package_delivered() -> bool:
+	if holding_delivery:
+		holding_delivery = false
+		Global.increaseScore(1000)
+		emit_signal('packageDelivered')
+		return true
+	else:
+		return false
+
+func set_player_health():
+	$HealthComponent._ready()
+
+func _on_health_component_health_depleated():
+	emit_signal('playerDead')
+
+
+func _on_health_component_health_changed(health):
+	$DamgeSound.play()
+	emit_signal('healthChanged', health)
+
+func _on_hit_box_component_entity_damaged():
+	$HitBoxComponent/CollisionShape2D.disabled = true
+	$Invulnerability.start()
+	$InvulnerabilityFlicker.start()
+
+func _on_invulnerability_timeout():
+	$HitBoxComponent/CollisionShape2D.disabled = false
+	$InvulnerabilityFlicker.stop()
+	$Sprite2D.modulate = oldModulate
+
+
+func _on_invulnerability_flicker_timeout():
+	if flickerSwitch:
+		$Sprite2D.modulate = Color.RED
+	else:
+		$Sprite2D.modulate = oldModulate
+	flickerSwitch = !flickerSwitch
+	
+func engineSoundFX():
+	if Input.is_action_pressed(\"accelerate\") || Input.is_action_pressed(\"joy_accelerate\") || Input.is_action_pressed(\"break\") || Input.is_action_pressed(\"joy_brake\"):
+		$EngineActive.play()
+		$EngineIdle.stop()
+	else:
+		$EngineActive.stop()
+		$EngineIdle.play()
+	pass
+	
+
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wg4r"]
 
@@ -20,7 +200,8 @@ collision_mask = 26
 motion_mode = 1
 platform_floor_layers = 4294967265
 safe_margin = 1.0
-script = ExtResource("1_nh7ok")
+script = SubResource("GDScript_m0gfk")
+fire_rate = 0.1
 metadata/_edit_vertical_guides_ = [-8.0, 8.0, 26.0, -30.0]
 metadata/_edit_horizontal_guides_ = [-8.0, 8.0, -15.0, 22.0]
 
@@ -45,8 +226,9 @@ position = Vector2(14.6763, -0.000112057)
 rotation = 1.5708
 scale = Vector2(-0.883376, -2.94882)
 
-[node name="HitBoxComponent" parent="." instance=ExtResource("52_gvo33")]
+[node name="HitBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("52_gvo33")]
 collision_mask = 2
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
 position = Vector2(-0.000139713, -0.0132847)
@@ -71,6 +253,7 @@ wait_time = 0.1
 
 [node name="WeponSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("54_cmfrh")
+volume_db = -2.811
 
 [node name="EngineActive" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("55_qibwk")
