@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://8bb80owp4ptp" path="res://Fonts/ARCADECLASSIC.TTF" id="2_ihdsj"]
 [ext_resource type="Texture2D" uid="uid://duwb55u2t1jcb" path="res://Art/UI/NavArrow.png" id="3_aynal"]
 [ext_resource type="Script" path="res://Scenes/UI/LivesText.gd" id="5_nm80i"]
-[ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/New assets/Car/Player_blue (16 x 16).png" id="6_5ltct"]
+[ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/Player/Car/Player_blue (16 x 16).png" id="6_5ltct"]
 [ext_resource type="Script" path="res://Scenes/UI/FinalScoreLabel.gd" id="7_wfeim"]
 [ext_resource type="AudioStream" uid="uid://dd1oirdkwp1r6" path="res://Audio/Music/Casey Frantum - Game Over Jingles Pack - 57 Sega Deth.wav" id="8_78b6l"]
 

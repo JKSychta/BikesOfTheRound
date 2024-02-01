@@ -23,7 +23,7 @@ func _on_hit_box_component_body_entered(body):
 		attack.attack_damage = attack_damage
 #		attack.knockback_force = knockback_force
 		body.damage(attack)
-	queue_free() 
+	queue_free()
 
 
 

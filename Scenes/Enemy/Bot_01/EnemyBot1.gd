@@ -1,18 +1,18 @@
 extends CharacterBody2D
 
 
-@export var health = 3
-@export var point_value = 100
-@export var move_speed = 15
+@export var health: int = 3
+@export var point_value: int = 100
+@export var move_speed: int = 15
 var player = null
-var inRange := false
+var in_range: bool = false
 
 
 
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 	if player:
-		if inRange == false:
+		if in_range == false:
 			var player_pos = player.position
 			look_at(player.position)
 			velocity = global_position.direction_to(player.global_position) * move_speed
@@ -45,13 +45,13 @@ func _on_health_component_health_depleated():
 		$ExplosionEffect.play("default")
 		$CollisionShape2D.set_deferred("disabled", true)
 		$DetectionRadius.monitoring = false
-		$HitBoxComponent.monitorable = false
+		$HitBoxComponent/HitBoxCollisionShape2D.set_deferred("disabled", true)
 		$BotMeleeAttack/AttackRange.monitoring = false
 		$deathTimer.start()
 
 
 func _on_bot_melee_attack_in_range():
-	inRange = !inRange
+	in_range = !in_range
 
 
 

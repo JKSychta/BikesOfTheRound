@@ -1,18 +1,12 @@
 extends Node2D
 
 signal inRange
-@export var attack_damage = 1 
+@export var attack_damage: int = 1 
 var player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AttackAnimation.hide()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 
 func attack(area):

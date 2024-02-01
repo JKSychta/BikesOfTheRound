@@ -14,7 +14,7 @@ func _process(delta):
 
 func game_start():
 	Global.resetScore()
-	postionThePlayer()
+	position_the_player()
 	$Delivery_System/delivery_spawn.spawn_package_pick_up()
 	$GameCountdownTimer.resetToDefault()
 	$GameCountdownTimer.start()
@@ -22,7 +22,7 @@ func game_start():
 	
 	
 func game_over():
-	spawnerKill()
+	spawner_kill()
 	$Player.holding_delivery = false
 	$Player.velocity = Vector2.ZERO
 	$Delivery_System.deselect_all()
@@ -33,7 +33,7 @@ func _on_game_countdown_timer_timeout():
 	$Player/CanvasLayer/User_Interface.game_over()
 	
 
-func postionThePlayer():
+func position_the_player():
 	$Player.position = $PlayerSpawn.position
 	$Player.rotation = deg_to_rad(270)
 	$Player.holding_delivery = false
@@ -44,11 +44,11 @@ func _on_player_player_dead():
 	game_over()
 	$Player/CanvasLayer/User_Interface.game_over()
 	
-func spawnerKill():
+func spawner_kill():
 	get_tree().call_group("EnemySpawners", "killAll")
 #	for i in len(spawners):
 #		spawners[i].killAll()
-func getPause():
+func get_pause():
 	if Input.is_action_just_pressed("escape"):
 		if get_tree().paused:
 			get_tree().paused = false

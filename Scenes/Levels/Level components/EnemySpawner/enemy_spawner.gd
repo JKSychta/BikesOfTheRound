@@ -4,12 +4,12 @@ signal everybody_dead
 
 @export var Enemy: PackedScene = preload("res://Scenes/Enemy/Bot_01/Enemy_bot1.tscn")
 @export var enemy_count: int = 5
-@export var respawn_time = 10
+@export var respawn_time: int = 10
 @onready var timer = $RespawnTimer
 @onready var timer_label = $TimeDisplayLabel
 var alive_enemies_count: int
 @onready var area_radius = $Area2D/CollisionShape2D.shape.radius
-var startTimerCheck: bool = true
+var start_timer_check: bool = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +25,7 @@ func _process(delta):
 #	print(get_child_count())
 
 func spawn():
-	startTimerCheck = false
+	start_timer_check = false
 	for i in range(enemy_count):
 		var e = Enemy.instantiate()
 		add_child(e)
@@ -51,12 +51,12 @@ func _on_child_exiting_tree(node):
 
 func _on_everybody_dead():
 	pass
-#	if startTimerCheck:
+#	if start_timer_check:
 #		timer.start()
 #		timer_label.show()
 		
 func killAll():
-	startTimerCheck = false
+	start_timer_check = false
 	for i in range(get_child_count()):
 		var child = get_child(i)
 		if child.has_method('kill'):
