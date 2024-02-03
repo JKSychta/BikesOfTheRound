@@ -19,7 +19,7 @@ func _on_quit_button_pressed():
 ## set_Scores loads scores from the score JSON file. It then parsers the data into an array and places the values into HiScores label.
 func set_Scores():
 	var score_string: String
-	for i in len(Global.loadedScores["scores"]):
-		score_string += str(i+1,". ", Global.loadedScores["scores"][i], "\n")
+	for i in len(Global.loaded_scores["scores"]):
+		score_string += str(i+1,". ", Global.loaded_scores["scores"][i], "\n")
 	$HiScores.text = str("Hiscores\n", score_string)
 

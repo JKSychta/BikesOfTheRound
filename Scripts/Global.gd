@@ -1,12 +1,12 @@
 extends Node
 
 var score = 0
-var loadedScores: Dictionary
-var scoreSaveLocation: String = "user://scores.save"
+var loaded_scores: Dictionary
+var score_save_location: String = "user://scores.save"
 
 
 func _ready():
-	loadedScores = load_score()
+	loaded_scores = load_score()
 
 func increaseScore(points):
 	score+= points
@@ -15,33 +15,33 @@ func resetScore():
 	score = 0
 
 func create_save():
-	var saveScore = {"scores":[1000,500,100]}
-	var scoreFile = FileAccess.open(scoreSaveLocation, FileAccess.WRITE)
-	var jsonString = JSON.stringify(saveScore)
-	scoreFile.store_line(jsonString)
+	var score_to_save = {"scores":[1000,500,100]}
+	var score_file = FileAccess.open(score_save_location, FileAccess.WRITE)
+	var json_string = JSON.stringify(score_to_save)
+	score_file.store_line(json_string)
 
 func save_score():
-	var saveScore = loadedScores
-	var scoreFile = FileAccess.open(scoreSaveLocation, FileAccess.WRITE)
-	var jsonString = JSON.stringify(saveScore)
-	scoreFile.store_line(jsonString)
+	var score_to_save = loaded_scores
+	var score_file = FileAccess.open(score_save_location, FileAccess.WRITE)
+	var json_string = JSON.stringify(score_to_save)
+	score_file.store_line(json_string)
 
 func load_score() -> Dictionary:
-	if not FileAccess.file_exists(scoreSaveLocation):
+	if not FileAccess.file_exists(score_save_location):
 		create_save()
-	var scoreFile = FileAccess.open(scoreSaveLocation, FileAccess.READ)
-	var jsonString = scoreFile.get_as_text()
-	var scoreDictionary = JSON.parse_string(jsonString)
+	var score_file = FileAccess.open(score_save_location, FileAccess.READ)
+	var json_string = score_file.get_as_text()
+	var scoreDictionary = JSON.parse_string(json_string)
 	return scoreDictionary
 
 func update_score():
-	loadedScores["scores"].sort()
-	loadedScores["scores"].reverse()
-	if !(loadedScores["scores"].has(score)):
-		if loadedScores["scores"].min() < score:
-			loadedScores["scores"][len(loadedScores["scores"])-1] = score
-			loadedScores["scores"].sort()
-			loadedScores["scores"].reverse()
+	loaded_scores["scores"].sort()
+	loaded_scores["scores"].reverse()
+	if !(loaded_scores["scores"].has(score)):
+		if loaded_scores["scores"].min() < score:
+			loaded_scores["scores"][len(loaded_scores["scores"])-1] = score
+			loaded_scores["scores"].sort()
+			loaded_scores["scores"].reverse()
 			print("score updated")
 			save_score()
-			loadedScores = load_score()
+			loaded_scores = load_score()
