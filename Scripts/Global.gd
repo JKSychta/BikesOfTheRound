@@ -8,10 +8,10 @@ var score_save_location: String = "user://scores.save"
 func _ready():
 	loaded_scores = load_score()
 
-func increaseScore(points):
+func increase_score(points):
 	score+= points
 	
-func resetScore():
+func reset_score():
 	score = 0
 
 func create_save():

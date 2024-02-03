@@ -7,13 +7,8 @@ func _ready():
 	game_start()
 	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func game_start():
-	Global.resetScore()
+	Global.reset_score()
 	position_the_player()
 	$Delivery_System/delivery_spawn.spawn_package_pick_up()
 	$GameCountdownTimer.resetToDefault()

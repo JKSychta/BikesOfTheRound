@@ -31,7 +31,7 @@ func _on_detection_radius_body_exited(body):
 
 
 #func _on_tree_exited():
-#	Global.increaseScore(point_value)
+#	Global.increase_score(point_value)
 #	print(Global.score)
 
 func kill():
@@ -40,7 +40,7 @@ func kill():
 
 func _on_health_component_health_depleated():
 		$DeathSound.play()
-		Global.increaseScore(point_value)
+		Global.increase_score(point_value)
 		$ExplosionEffect.show()
 		$ExplosionEffect.play("default")
 		$CollisionShape2D.set_deferred("disabled", true)
