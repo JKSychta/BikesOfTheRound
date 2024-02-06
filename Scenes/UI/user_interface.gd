@@ -1,13 +1,13 @@
 extends Control
 
-var target = Vector2.ZERO
+var target: Vector2 = Vector2.ZERO
 var currentTarget: Vector2
 var playerPosition: Vector2
 @onready var navigationArrow = $NavigationArrow
 @onready var timeLeft = $TimeLeft
-var playerHealth
-var paused := false
-var gameOver := false
+var playerHealth : int
+var paused: bool = false
+var gameOver: bool = false
 signal retry
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,7 +20,7 @@ func _process(delta):
 	navigationArrow.rotation = playerPosition.angle_to_point(currentTarget) + deg_to_rad(90)
 	if !gameOver:
 		get_input()
-	
+
 
 func _on_player_player_global_position(player_global_position):
 	playerPosition = player_global_position

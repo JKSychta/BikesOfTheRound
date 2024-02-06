@@ -40,9 +40,7 @@ func _on_player_player_dead():
 	$Player/CanvasLayer/User_Interface.game_over()
 	
 func spawner_kill():
-	get_tree().call_group("EnemySpawners", "killAll")
-#	for i in len(spawners):
-#		spawners[i].killAll()
+	get_tree().call_group("EnemySpawners", "kill_all")
 func get_pause():
 	if Input.is_action_just_pressed("escape"):
 		if get_tree().paused:

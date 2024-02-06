@@ -55,7 +55,7 @@ func _on_everybody_dead():
 #		timer.start()
 #		timer_label.show()
 		
-func killAll():
+func kill_all():
 	start_timer_check = false
 	for i in range(get_child_count()):
 		var child = get_child(i)

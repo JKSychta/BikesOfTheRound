@@ -1,4 +1,4 @@
 extends Label
 
-func setScores():
+func set_scores():
 	self.text = ""

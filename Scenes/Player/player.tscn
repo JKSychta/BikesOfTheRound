@@ -47,7 +47,7 @@ var flickerSwitch = true
 
 func _ready():
 	$FireRate.wait_time = fire_rate
-	pass
+
 
 ## Called every phisics engine tick, handles most of the logic
 func _physics_process(delta):
