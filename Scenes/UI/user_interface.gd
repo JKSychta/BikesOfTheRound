@@ -1,13 +1,13 @@
 extends Control
 
 var target: Vector2 = Vector2.ZERO
-var currentTarget: Vector2
-var playerPosition: Vector2
-@onready var navigationArrow = $NavigationArrow
-@onready var timeLeft = $TimeLeft
-var playerHealth : int
+var current_target: Vector2
+var player_position: Vector2
+@onready var navigation_arrow: Sprite2D = $NavigationArrow
+@onready var time_left: Label = $TimeLeft
+var player_health : int
 var paused: bool = false
-var gameOver: bool = false
+var is_game_over: bool = false
 signal retry
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,27 +17,27 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	navigationArrow.rotation = playerPosition.angle_to_point(currentTarget) + deg_to_rad(90)
-	if !gameOver:
+	navigation_arrow.rotation = player_position.angle_to_point(current_target) + deg_to_rad(90)
+	if !is_game_over:
 		get_input()
 
 
-func _on_player_player_global_position(player_global_position):
-	playerPosition = player_global_position
+func _on_player_player_global_position(player_global_position: Vector2):
+	player_position = player_global_position
 	pass
 	
 
-func _on_delivery_spawn_navigation_target_spawn(target):
-	currentTarget = target 
+func _on_delivery_spawn_navigation_target_spawn(target: Vector2):
+	current_target = target 
 	$NavigationArrow.self_modulate = Color.RED
 
 
-func _on_delivery_system_navigation_target(target):
-	currentTarget = target  # Replace with function body.
+func _on_delivery_system_navigation_target(target: Vector2):
+	current_target = target  # Replace with function body.
 	$NavigationArrow.self_modulate = Color.GREEN
 
 
-func _on_player_health_changed(health):
+func _on_player_health_changed(health: int):
 	$LivesText.lives = health
 
 
@@ -71,11 +71,11 @@ func _on_retry_button_pressed():
 	emit_signal("retry")
 	$GameOverOverlay.hide()
 	$GameOverOverlay/GameOverJingle.stop()
-	gameOver = false
+	is_game_over = false
 	get_tree().paused = false
 	
 func game_over():
-	gameOver = true
+	is_game_over = true
 	get_tree().paused = true
 	$GameOverOverlay.show()
 	$GameOverOverlay/VBoxContainer/RetryButton.grab_focus()
