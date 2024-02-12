@@ -2,7 +2,7 @@ extends Node2D
 
 signal everybody_dead
 
-@export var Enemy: PackedScene = preload("res://Scenes/Enemy/Bot_01/Enemy_bot1.tscn")
+@export var Enemy: PackedScene = preload("res://Scenes/Enemy/Bot_01/EnemyBot1.tscn")
 @export var enemy_count: int = 5
 @export var respawn_time: int = 10
 @onready var timer = $RespawnTimer
