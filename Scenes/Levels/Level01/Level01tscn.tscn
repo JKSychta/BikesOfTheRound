@@ -32,6 +32,8 @@ limit_top = -210
 limit_right = 946
 limit_bottom = 770
 limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 editor_draw_limits = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]

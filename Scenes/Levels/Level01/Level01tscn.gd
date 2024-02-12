@@ -39,16 +39,19 @@ func _on_player_player_dead():
 	game_over()
 	$Player/CanvasLayer/User_Interface.game_over()
 	
+	
 func spawner_kill():
 	get_tree().call_group("EnemySpawners", "kill_all")
+	
+	
 func get_pause():
 	if Input.is_action_just_pressed("escape"):
 		if get_tree().paused:
 			get_tree().paused = false
 		else:
 			get_tree().paused = true
-			
-		
+
+
 
 func _on_user_interface_retry():
 	game_start()

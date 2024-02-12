@@ -17,7 +17,7 @@ signal playerDead
 signal healthChanged(health)
 
 #define the distance between front and back based on the sprite
-var wheel_base = 16 # 16 is the height of our current sprite
+var wheel_base: int = 16 # 16 is the height of our current sprite
 #define the angle at which the wheels will turn
 @export var steering_angle_degrees := 20
 var steereing_angle = deg_to_rad(steering_angle_degrees)
@@ -42,8 +42,8 @@ var drag: float = -0.0015
 var angle
 var shot_ready :bool = true
 var holding_delivery:bool = false
-var oldModulate = self.modulate
-var flickerSwitch = true
+var old_modulate = self.modulate
+var flicker_switch = true
 
 func _ready():
 	$FireRate.wait_time = fire_rate
@@ -167,15 +167,15 @@ func _on_hit_box_component_entity_damaged():
 func _on_invulnerability_timeout():
 	$HitBoxComponent/CollisionShape2D.disabled = false
 	$InvulnerabilityFlicker.stop()
-	$Sprite2D.modulate = oldModulate
+	$Sprite2D.modulate = old_modulate
 
 
 func _on_invulnerability_flicker_timeout():
-	if flickerSwitch:
+	if flicker_switch:
 		$Sprite2D.modulate = Color.RED
 	else:
-		$Sprite2D.modulate = oldModulate
-	flickerSwitch = !flickerSwitch
+		$Sprite2D.modulate = old_modulate
+	flicker_switch = !flicker_switch
 	
 func engineSoundFX():
 	if Input.is_action_pressed(\"accelerate\") || Input.is_action_pressed(\"joy_accelerate\") || Input.is_action_pressed(\"break\") || Input.is_action_pressed(\"joy_brake\"):

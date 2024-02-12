@@ -6,37 +6,37 @@ signal playerDead
 signal healthChanged(health)
 
 #define the distance between front and back based on the sprite
-var wheel_base = 16 # 16 is the height of our current sprite
+var wheel_base: int = 16 # 16 is the height of our current sprite
 #define the angle at which the wheels will turn
-@export var steering_angle_degrees := 20
-var steereing_angle = deg_to_rad(steering_angle_degrees)
+@export var steering_angle_degrees: int = 20
+var steereing_angle: float = deg_to_rad(steering_angle_degrees)
 #the speed whith wich the car will accelerate
-@export var speed = 600 ## Speed with which the car will accelerate
-@export var braking = -450 ## Speed with which car deccelerate / accelerate backwards
-@export var max_speed_reverse = 250 ## Top speed for going in reverse
-@export var friction_force = Vector2.ZERO 
-@export var drag_force = Vector2.ZERO
-@export var slip_speed = 400
+@export var speed: int = 600 ## Speed with which the car will accelerate
+@export var braking: int = -450 ## Speed with which car deccelerate / accelerate backwards
+@export var max_speed_reverse: int = 250 ## Top speed for going in reverse
+@export var friction_force: Vector2 = Vector2.ZERO 
+@export var drag_force: Vector2 = Vector2.ZERO
+@export var slip_speed: int = 400
 ## 
-@export var traction_fast = 0.1 ##
-@export var traction_slow = 0.7 ##
+@export var traction_fast: float = 0.1 ##
+@export var traction_slow: float = 0.7 ##
 @export var fire_rate: float = 0.5
 var Bullet: PackedScene = preload("res://Scenes/Bullet/bullet.tscn")
-@onready var muzzle = get_node("BulletSpawn")
+@onready var muzzle: Marker2D = get_node("BulletSpawn")
 #predefined variables
-var acceleration := Vector2.ZERO
-var steer_angle
+var acceleration: Vector2 = Vector2.ZERO
+var steer_angle: float
 var friction: float = -0.9
 var drag: float = -0.0015
-var angle
-var shot_ready :bool = true
-var holding_delivery:bool = false
-var old_modulate = self.modulate
-var flicker_switch = true
+var angle: float
+var shot_ready: bool = true
+var holding_delivery: bool = false
+var old_modulate: Color = self.modulate
+var flicker_switch: bool = true
 
 func _ready():
 	$FireRate.wait_time = fire_rate
-	pass
+
 
 ## Called every phisics engine tick, handles most of the logic
 func _physics_process(delta):

@@ -1,12 +1,10 @@
 extends CharacterBody2D
 
-
 @export var health: int = 3
 @export var point_value: int = 100
 @export var move_speed: int = 15
 var player = null
 var in_range: bool = false
-
 
 
 func _physics_process(delta):
@@ -29,14 +27,8 @@ func _on_detection_radius_body_entered(body):
 func _on_detection_radius_body_exited(body):
 	player = null
 
-
-#func _on_tree_exited():
-#	Global.increase_score(point_value)
-#	print(Global.score)
-
 func kill():
 	queue_free()
-
 
 func _on_health_component_health_depleated():
 		$DeathSound.play()
@@ -49,11 +41,8 @@ func _on_health_component_health_depleated():
 		$BotMeleeAttack/AttackRange.monitoring = false
 		$deathTimer.start()
 
-
 func _on_bot_melee_attack_in_range():
 	in_range = !in_range
-
-
 
 func _on_death_timer_timeout():
 	kill()
