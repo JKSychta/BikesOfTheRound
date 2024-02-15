@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var health: int = 3
 @export var point_value: int = 100
 @export var move_speed: int = 15
 var player = null

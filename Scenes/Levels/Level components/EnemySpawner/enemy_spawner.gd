@@ -16,13 +16,8 @@ var start_timer_check: bool = true
 func _ready():
 	spawn()
 	timer.wait_time = respawn_time
-#	timer_label.hide()
 	timer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-#	print(get_child_count())
 
 func spawn():
 	start_timer_check = false
@@ -39,7 +34,6 @@ func randomSpawnPoint():
 
 func _on_respawn_timer_timeout():
 	spawn()
-#	timer_label.hide()#
 	timer.start()
 
 
