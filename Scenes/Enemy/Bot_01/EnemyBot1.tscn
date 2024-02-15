@@ -168,5 +168,5 @@ frame_progress = 0.912888
 [connection signal="body_exited" from="BotMeleeAttack/AttackRange" to="BotMeleeAttack" method="_on_attack_range_body_exited"]
 [connection signal="animation_finished" from="BotMeleeAttack/AttackAnimation" to="BotMeleeAttack" method="_on_attack_animation_animation_finished"]
 [connection signal="animation_looped" from="BotMeleeAttack/AttackAnimation" to="BotMeleeAttack" method="_on_attack_animation_animation_looped"]
-[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

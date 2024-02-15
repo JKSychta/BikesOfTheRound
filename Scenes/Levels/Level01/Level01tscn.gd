@@ -5,7 +5,6 @@ extends Node2D
 func _ready():
 	Global.save_score()
 	game_start()
-	pass
 
 func game_start():
 	Global.reset_score()
@@ -14,6 +13,7 @@ func game_start():
 	$GameCountdownTimer.resetToDefault()
 	$GameCountdownTimer.start()
 	$LevelMusic.play()
+	get_tree().call_group("EnemySpawners", "spawn")
 	
 	
 func game_over():

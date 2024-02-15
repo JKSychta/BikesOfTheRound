@@ -14,10 +14,8 @@ var start_timer_check: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn()
 	timer.wait_time = respawn_time
 	timer.start()
-
 
 func spawn():
 	start_timer_check = false
@@ -31,17 +29,14 @@ func randomSpawnPoint():
 	var distance := randi_range(-area_radius, area_radius)	
 	return distance
 
-
 func _on_respawn_timer_timeout():
 	spawn()
 	timer.start()
-
 
 func _on_child_exiting_tree(node):
 	alive_enemies_count -= 1
 	if alive_enemies_count <= 0:
 		emit_signal("everybody_dead")
-
 
 func _on_everybody_dead():
 	pass
@@ -55,4 +50,3 @@ func kill_all():
 		var child = get_child(i)
 		if child.has_method('kill'):
 			child.kill()
-	spawn()

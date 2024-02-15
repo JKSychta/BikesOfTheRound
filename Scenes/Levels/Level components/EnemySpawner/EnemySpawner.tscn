@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://btw6cav5nog8a"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Level components/EnemySpawner/enemy_spawner.gd" id="1_pigtw"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level components/EnemySpawner/EnemySpawner.gd" id="1_0v1kb"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level components/EnemySpawner/TimeDisplayLabel.gd" id="2_tolvk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tqdtr"]
@@ -9,9 +9,9 @@ radius = 60.0
 [sub_resource type="LabelSettings" id="LabelSettings_gfpnu"]
 line_spacing = 32.0
 
-[node name="Enemy_Spawner" type="Node2D"]
+[node name="EnemySpawner" type="Node2D"]
 position = Vector2(0, -1)
-script = ExtResource("1_pigtw")
+script = ExtResource("1_0v1kb")
 enemy_count = 2
 respawn_time = 20
 

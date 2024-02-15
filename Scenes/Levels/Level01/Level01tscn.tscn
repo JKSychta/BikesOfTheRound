@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/Levels/Test Level/Delivery_System.gd" id="6_nrnhq"]
 [ext_resource type="PackedScene" uid="uid://bbk50naeyyv56" path="res://Scenes/Levels/Level components/Delivery Spawn/delivery_spawn.tscn" id="7_kautg"]
 [ext_resource type="PackedScene" uid="uid://dusg6jon1ohfk" path="res://Scenes/Levels/Level components/DeliveryPoint/delivery_point.tscn" id="8_jebus"]
-[ext_resource type="PackedScene" uid="uid://btw6cav5nog8a" path="res://Scenes/Levels/Level components/EnemySpawner/enemy_spawner.tscn" id="9_xgw1j"]
+[ext_resource type="PackedScene" uid="uid://btw6cav5nog8a" path="res://Scenes/Levels/Level components/EnemySpawner/EnemySpawner.tscn" id="9_xgw1j"]
 [ext_resource type="AudioStream" uid="uid://cgelag8v7581p" path="res://Audio/Music/8-bit_slay_the_evil.ogg" id="10_cshap"]
 
 [node name="Level01" type="Node2D"]
@@ -93,49 +93,49 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(794, 44)
 scale = Vector2(0.5, 0.5)
 
-[node name="Enemy_Spawner" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(272, 9)
 
-[node name="Enemy_Spawner8" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner8" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-449, 177)
 
-[node name="Enemy_Spawner11" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner11" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(790, 59)
 
-[node name="Enemy_Spawner9" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner9" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(601, 108)
 
-[node name="Enemy_Spawner10" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner10" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(591, -52)
 
-[node name="Enemy_Spawner7" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner7" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(611, 301)
 
-[node name="Enemy_Spawner6" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner6" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(66, 656)
 
-[node name="Enemy_Spawner4" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner4" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-364, 651)
 
-[node name="Enemy_Spawner5" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner5" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(628, 487)
 
-[node name="Enemy_Spawner2" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner2" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-214, 5)
 
-[node name="Enemy_Spawner3" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner3" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-21, 295)
 
-[node name="Enemy_Spawner12" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner12" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-201, 300)
 
-[node name="Enemy_Spawner13" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner13" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-452, -33)
 
-[node name="Enemy_Spawner14" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner14" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(-365, 454)
 
-[node name="Enemy_Spawner15" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
+[node name="EnemySpawner15" parent="." groups=["EnemySpawners"] instance=ExtResource("9_xgw1j")]
 position = Vector2(382, 406)
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
