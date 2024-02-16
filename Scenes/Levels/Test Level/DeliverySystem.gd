@@ -5,11 +5,11 @@ signal navigationTarget(target)
 # Called when the node enters the scene tree for the first time.
 
 func choose_destination():
-	var randomPoint = randi_range(0, len(delivery_points)-1)
-	var selectedPoint = delivery_points[randomPoint]
-	if selectedPoint.has_method('target_point_toggle'):
-		selectedPoint.target_point_toggle()
-		emit_signal("navigationTarget", selectedPoint.global_position)
+	var random_point = randi_range(0, len(delivery_points)-1)
+	var selected_point = delivery_points[random_point]
+	if selected_point.has_method('target_point_toggle'):
+		selected_point.target_point_toggle()
+		emit_signal("navigationTarget", selected_point.global_position)
 	
 
 func deselect_all():

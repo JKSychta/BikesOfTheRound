@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bur4gce4cb4p3" path="res://Scenes/Level01 tilemap/level_tile_set.tscn" id="2_c2giq"]
 [ext_resource type="PackedScene" uid="uid://2qac47tfb0q3" path="res://Scenes/UI/user_interface.tscn" id="3_v54xb"]
 [ext_resource type="Script" path="res://Scenes/Levels/Test Level/GameCountdownTimer.gd" id="4_2g4xm"]
-[ext_resource type="Script" path="res://Scenes/Levels/Test Level/Delivery_System.gd" id="6_nrnhq"]
+[ext_resource type="Script" path="res://Scenes/Levels/Test Level/DeliverySystem.gd" id="6_glxm8"]
 [ext_resource type="PackedScene" uid="uid://bbk50naeyyv56" path="res://Scenes/Levels/Level components/Delivery Spawn/DeliverySpawn.tscn" id="7_kautg"]
 [ext_resource type="PackedScene" uid="uid://dusg6jon1ohfk" path="res://Scenes/Levels/Level components/DeliveryPoint/DeliveryPoint.tscn" id="8_jebus"]
 [ext_resource type="PackedScene" uid="uid://btw6cav5nog8a" path="res://Scenes/Levels/Level components/EnemySpawner/EnemySpawner.tscn" id="9_xgw1j"]
@@ -52,7 +52,7 @@ defaultTimer = 30.0
 deliveryBonusTime = 15.0
 
 [node name="Delivery_System" type="Node" parent="." groups=["DeliverySystem"]]
-script = ExtResource("6_nrnhq")
+script = ExtResource("6_glxm8")
 
 [node name="DeliverySpawn" parent="Delivery_System" groups=["DeliverySystem"] instance=ExtResource("7_kautg")]
 position = Vector2(84, -3)

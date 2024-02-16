@@ -2,7 +2,6 @@ extends Node2D
 class_name DeliveryPoint
 
 signal package_delivered
-#signal navigationTarget(target)
 
 var target_point: bool = false
 var target: Vector2 = self.global_position
