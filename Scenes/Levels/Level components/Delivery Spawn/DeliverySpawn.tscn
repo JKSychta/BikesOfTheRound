@@ -1,23 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbk50naeyyv56"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Level components/Delivery Spawn/delivery_spawn.gd" id="1_4st7u"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level components/Delivery Spawn/DeliverySpawn.gd" id="1_eob4c"]
 [ext_resource type="Texture2D" uid="uid://bbplg3q52qqk7" path="res://Art/Level/delivery-point.png" id="3_32vig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnmoy"]
 size = Vector2(17, 17)
 
-[node name="delivery_spawn" type="Node2D"]
-script = ExtResource("1_4st7u")
+[node name="DeliverySpawn" type="Node2D"]
+script = ExtResource("1_eob4c")
 
-[node name="delivery_source_sprite" type="Sprite2D" parent="."]
+[node name="DeliverySourceSprite" type="Sprite2D" parent="."]
 modulate = Color(0.968627, 0, 0, 0.760784)
 self_modulate = Color(0.94902, 0.819608, 0.92549, 1)
 rotation = -3.14159
 scale = Vector2(0.273438, 0.273438)
 texture = ExtResource("3_32vig")
 
-[node name="delivery_source" type="Area2D" parent="."]
+[node name="DeliverySource" type="Area2D" parent="."]
 collision_layer = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="delivery_source"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeliverySource"]
 shape = SubResource("RectangleShape2D_qnmoy")

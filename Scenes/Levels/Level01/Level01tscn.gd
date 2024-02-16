@@ -9,7 +9,7 @@ func _ready():
 func game_start():
 	Global.reset_score()
 	position_the_player()
-	$Delivery_System/delivery_spawn.spawn_package_pick_up()
+	$Delivery_System/DeliverySpawn.spawn_package_pick_up()
 	$GameCountdownTimer.resetToDefault()
 	$GameCountdownTimer.start()
 	$LevelMusic.play()
