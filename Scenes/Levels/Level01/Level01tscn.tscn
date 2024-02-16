@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/Levels/Test Level/GameCountdownTimer.gd" id="4_2g4xm"]
 [ext_resource type="Script" path="res://Scenes/Levels/Test Level/Delivery_System.gd" id="6_nrnhq"]
 [ext_resource type="PackedScene" uid="uid://bbk50naeyyv56" path="res://Scenes/Levels/Level components/Delivery Spawn/DeliverySpawn.tscn" id="7_kautg"]
-[ext_resource type="PackedScene" uid="uid://dusg6jon1ohfk" path="res://Scenes/Levels/Level components/DeliveryPoint/delivery_point.tscn" id="8_jebus"]
+[ext_resource type="PackedScene" uid="uid://dusg6jon1ohfk" path="res://Scenes/Levels/Level components/DeliveryPoint/DeliveryPoint.tscn" id="8_jebus"]
 [ext_resource type="PackedScene" uid="uid://btw6cav5nog8a" path="res://Scenes/Levels/Level components/EnemySpawner/EnemySpawner.tscn" id="9_xgw1j"]
 [ext_resource type="AudioStream" uid="uid://cgelag8v7581p" path="res://Audio/Music/8-bit_slay_the_evil.ogg" id="10_cshap"]
 

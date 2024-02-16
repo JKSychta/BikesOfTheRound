@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Levels/Test Level/Delivery_System.gd" id="1_ilj8p"]
 [ext_resource type="PackedScene" uid="uid://bbk50naeyyv56" path="res://Scenes/Levels/Level components/Delivery Spawn/DeliverySpawn.tscn" id="2_q0pwi"]
-[ext_resource type="PackedScene" uid="uid://dusg6jon1ohfk" path="res://Scenes/Levels/Level components/DeliveryPoint/delivery_point.tscn" id="3_t443r"]
+[ext_resource type="PackedScene" uid="uid://dusg6jon1ohfk" path="res://Scenes/Levels/Level components/DeliveryPoint/DeliveryPoint.tscn" id="3_t443r"]
 
 [node name="Delivery_System" type="Node" groups=["DeliverySystem"]]
 script = ExtResource("1_ilj8p")

@@ -14,9 +14,9 @@ func choose_destination():
 
 func deselect_all():
 	for i in range(len(delivery_points)):
-		var deliveryPoint = delivery_points[i]
-		if deliveryPoint.targetPoint == true:
-			deliveryPoint.target_point_toggle()
+		var delivery_point = delivery_points[i]
+		if delivery_point.target_point == true:
+			delivery_point.target_point_toggle()
 		
 func _on_delivery_spawn_delivery_point_select():
 	choose_destination()
