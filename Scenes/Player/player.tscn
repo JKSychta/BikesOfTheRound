@@ -19,33 +19,35 @@ signal healthChanged(health)
 #define the distance between front and back based on the sprite
 var wheel_base: int = 16 # 16 is the height of our current sprite
 #define the angle at which the wheels will turn
-@export var steering_angle_degrees := 20
-var steereing_angle = deg_to_rad(steering_angle_degrees)
+@export var steering_angle_degrees: int = 20
+var steereing_angle: float = deg_to_rad(steering_angle_degrees)
 #the speed whith wich the car will accelerate
-@export var speed = 600 ## Speed with which the car will accelerate
-@export var braking = -450 ## Speed with which car deccelerate / accelerate backwards
-@export var max_speed_reverse = 250 ## Top speed for going in reverse
-@export var friction_force = Vector2.ZERO 
-@export var drag_force = Vector2.ZERO
-@export var slip_speed = 400
-@export var traction_fast = 0.1 ##
-@export var traction_slow = 0.7 ##
+@export var speed: int = 600 ## Speed with which the car will accelerate
+@export var braking: int = -450 ## Speed with which car deccelerate / accelerate backwards
+@export var max_speed_reverse: int = 250 ## Top speed for going in reverse
+@export var friction_force: Vector2 = Vector2.ZERO 
+@export var drag_force: Vector2 = Vector2.ZERO
+@export var slip_speed: int = 400
+## 
+@export var traction_fast: float = 0.1 ##
+@export var traction_slow: float = 0.7 ##
 @export var fire_rate: float = 0.5
 var Bullet: PackedScene = preload(\"res://Scenes/Bullet/bullet.tscn\")
-@onready var muzzle = get_node(\"BulletSpawn\")
+@onready var muzzle: Marker2D = get_node(\"BulletSpawn\")
 #predefined variables
-var acceleration := Vector2.ZERO
-var steer_angle
+var acceleration: Vector2 = Vector2.ZERO
+var steer_angle: float
 var friction: float = -0.9
 var drag: float = -0.0015
-var angle
-var shot_ready :bool = true
-var holding_delivery:bool = false
-var old_modulate = self.modulate
-var flicker_switch = true
+var angle: float
+var shot_ready: bool = true
+var holding_delivery: bool = false
+var old_modulate: Color = self.modulate
+var flicker_switch: bool = true
 
 func _ready():
 	$FireRate.wait_time = fire_rate
+
 
 ## Called every phisics engine tick, handles most of the logic
 func _physics_process(delta):
@@ -58,11 +60,13 @@ func _physics_process(delta):
 	velocity += acceleration * delta
 	var temp_velocity = velocity
 	move_and_slide()
+	print(velocity.length())
 	## Bounce check 
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
 		if collision != null:
 			velocity = temp_velocity.bounce(collision.get_normal()) * 0.7
+	
 
 ## Dodaje tarcie dając uczucie stopniowego zwalniania pojazdu gracza
 func apply_friction():
@@ -97,6 +101,7 @@ func get_input():
 	if Input.is_action_pressed(\"shoot\"):
 		shoot()
 
+		
 ## Calculations required for steering		
 ## It establishes the position of front and back \"wheels\" then uses it to turn the sprite from the front like a vehicle would
 func calculate_steering(delta):
@@ -114,12 +119,14 @@ func calculate_steering(delta):
 	if d < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
+	
 
 #Shooting for the player
 func shoot():
 	if shot_ready:
 		var b = Bullet.instantiate() #creates an instance of a Bullet Scene
 		owner.add_child(b) #Adds it to the player
+	#	b.angle = deg_to_rad(0)
 		b.transform = muzzle.global_transform #Shoots it from the BulletSpawn Marker2D
 		shot_ready = false
 		$FireRate.start()
@@ -130,7 +137,8 @@ func _on_fire_rate_timeout():
 
 func package_picked_up():
 	holding_delivery = true
-
+#	print(\"AQUIRED PACKAGE\")
+	
 func package_delivered() -> bool:
 	if holding_delivery:
 		holding_delivery = false
@@ -145,6 +153,7 @@ func set_player_health():
 
 func _on_health_component_health_depleated():
 	emit_signal('playerDead')
+
 
 func _on_health_component_health_changed(health):
 	$DamgeSound.play()
@@ -161,6 +170,7 @@ func _on_invulnerability_timeout():
 	$InvulnerabilityFlicker.stop()
 	$Sprite2D.modulate = old_modulate
 	self.collision_mask = 26 # przywraca oryginalną maskę b11010 (26dec)
+
 
 func _on_invulnerability_flicker_timeout():
 	if flicker_switch:

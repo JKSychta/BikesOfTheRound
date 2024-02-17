@@ -152,11 +152,13 @@ func _on_hit_box_component_entity_damaged():
 	$HitBoxComponent/CollisionShape2D.disabled = true
 	$Invulnerability.start()
 	$InvulnerabilityFlicker.start()
+	self.collision_mask = 24 # zmienia włącza bycie wykrywalnym z przeciwnikami zmieniając maskę binarną 11010 (26 dec) na 11000 (24 dec)	
 
 func _on_invulnerability_timeout():
 	$HitBoxComponent/CollisionShape2D.disabled = false
 	$InvulnerabilityFlicker.stop()
 	$Sprite2D.modulate = old_modulate
+	self.collision_mask = 26 # przywraca oryginalną maskę b11010 (26dec)
 
 
 func _on_invulnerability_flicker_timeout():
