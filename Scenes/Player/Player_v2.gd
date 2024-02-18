@@ -17,9 +17,8 @@ var steereing_angle: float = deg_to_rad(steering_angle_degrees)
 @export var friction_force: Vector2 = Vector2.ZERO 
 @export var drag_force: Vector2 = Vector2.ZERO
 @export var slip_speed: int = 400
-## 
-@export var traction_fast: float = 0.1 ##
-@export var traction_slow: float = 0.7 ##
+@export var traction_fast: float = 0.1 
+@export var traction_slow: float = 0.7 
 @export var fire_rate: float = 0.5
 var Bullet: PackedScene = preload("res://Scenes/Bullet/bullet.tscn")
 @onready var muzzle: Marker2D = get_node("BulletSpawn")
@@ -175,6 +174,5 @@ func engineSoundFX():
 	else:
 		$EngineActive.stop()
 		$EngineIdle.play()
-	pass
 	
 
