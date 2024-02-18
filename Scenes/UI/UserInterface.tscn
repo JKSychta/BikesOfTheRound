@@ -1,25 +1,25 @@
 [gd_scene load_steps=15 format=3 uid="uid://2qac47tfb0q3"]
 
-[ext_resource type="Script" path="res://Scenes/UI/user_interface.gd" id="1_0an6c"]
-[ext_resource type="Script" path="res://Scenes/UI/Score.gd" id="1_5cdok"]
-[ext_resource type="FontFile" uid="uid://8bb80owp4ptp" path="res://Fonts/ARCADECLASSIC.TTF" id="2_ihdsj"]
-[ext_resource type="Texture2D" uid="uid://duwb55u2t1jcb" path="res://Art/UI/NavArrow.png" id="3_aynal"]
-[ext_resource type="Script" path="res://Scenes/UI/LivesText.gd" id="5_nm80i"]
-[ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/Player/Car/Player_blue (16 x 16).png" id="6_5ltct"]
-[ext_resource type="Script" path="res://Scenes/UI/FinalScoreLabel.gd" id="7_wfeim"]
-[ext_resource type="AudioStream" uid="uid://dd1oirdkwp1r6" path="res://Audio/Music/Casey Frantum - Game Over Jingles Pack - 57 Sega Deth.wav" id="8_78b6l"]
+[ext_resource type="Script" path="res://Scenes/UI/UserInterface.gd" id="1_ykxf2"]
+[ext_resource type="FontFile" uid="uid://8bb80owp4ptp" path="res://Fonts/ARCADECLASSIC.TTF" id="2_x116f"]
+[ext_resource type="Script" path="res://Scenes/UI/Score.gd" id="3_3i5gj"]
+[ext_resource type="Texture2D" uid="uid://duwb55u2t1jcb" path="res://Art/UI/NavArrow.png" id="4_f33pg"]
+[ext_resource type="Script" path="res://Scenes/UI/LivesText.gd" id="5_76tbb"]
+[ext_resource type="Texture2D" uid="uid://bjnagoisjg7ae" path="res://Art/Player/Car/Player_blue (16 x 16).png" id="6_pdkek"]
+[ext_resource type="Script" path="res://Scenes/UI/FinalScoreLabel.gd" id="7_jr8cf"]
+[ext_resource type="AudioStream" uid="uid://dd1oirdkwp1r6" path="res://Audio/Music/Casey Frantum - Game Over Jingles Pack - 57 Sega Deth.wav" id="8_oxi8d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v61rj"]
 line_spacing = 0.0
-font = ExtResource("2_ihdsj")
+font = ExtResource("2_x116f")
 font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ajt8"]
-font = ExtResource("2_ihdsj")
+font = ExtResource("2_x116f")
 font_size = 14
 
 [sub_resource type="LabelSettings" id="LabelSettings_ywp4f"]
-font = ExtResource("2_ihdsj")
+font = ExtResource("2_x116f")
 
 [sub_resource type="LabelSettings" id="LabelSettings_11glj"]
 font_size = 32
@@ -30,7 +30,7 @@ font_size = 39
 [sub_resource type="LabelSettings" id="LabelSettings_2mtki"]
 font_size = 42
 
-[node name="User_Interface" type="Control"]
+[node name="UserInterface" type="Control"]
 process_mode = 3
 top_level = true
 layout_mode = 3
@@ -44,7 +44,7 @@ offset_bottom = -646.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.994)
-script = ExtResource("1_0an6c")
+script = ExtResource("1_ykxf2")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_vertical_guides_ = [576.0, 1144.0]
 metadata/_edit_horizontal_guides_ = [16.0, 320.0]
@@ -62,7 +62,7 @@ text = "Score: 9999"
 label_settings = SubResource("LabelSettings_v61rj")
 vertical_alignment = 1
 uppercase = true
-script = ExtResource("1_5cdok")
+script = ExtResource("3_3i5gj")
 
 [node name="TimeLeft" type="Label" parent="."]
 layout_mode = 0
@@ -79,7 +79,7 @@ vertical_alignment = 1
 [node name="NavigationArrow" type="Sprite2D" parent="."]
 position = Vector2(40, 39.2354)
 rotation = 6.28318
-texture = ExtResource("3_aynal")
+texture = ExtResource("4_f33pg")
 
 [node name="LivesText" type="Label" parent="."]
 layout_mode = 1
@@ -93,11 +93,11 @@ grow_horizontal = 2
 text = "X 9"
 label_settings = SubResource("LabelSettings_ywp4f")
 vertical_alignment = 1
-script = ExtResource("5_nm80i")
+script = ExtResource("5_76tbb")
 
 [node name="LivesIcon" type="Sprite2D" parent="LivesText"]
 position = Vector2(-8.00012, 12.0724)
-texture = ExtResource("6_5ltct")
+texture = ExtResource("6_pdkek")
 region_enabled = true
 region_rect = Rect2(0, 1, 16, 16)
 
@@ -113,7 +113,7 @@ grow_horizontal = 2
 scale = Vector2(31.4782, 17.7136)
 color = Color(0.207843, 0.207843, 0.207843, 0.823529)
 
-[node name="Label" type="Label" parent="PauseMenuOverlay"]
+[node name="PauseLabel" type="Label" parent="PauseMenuOverlay"]
 layout_mode = 0
 offset_left = 13.7238
 offset_top = 11.3589
@@ -182,7 +182,7 @@ text = "Final Score
 9999"
 label_settings = SubResource("LabelSettings_2mtki")
 horizontal_alignment = 1
-script = ExtResource("7_wfeim")
+script = ExtResource("7_jr8cf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverOverlay"]
 layout_mode = 1
@@ -206,7 +206,7 @@ layout_mode = 2
 text = "Quit"
 
 [node name="GameOverJingle" type="AudioStreamPlayer" parent="GameOverOverlay"]
-stream = ExtResource("8_78b6l")
+stream = ExtResource("8_oxi8d")
 volume_db = -13.765
 
 [connection signal="pressed" from="PauseMenuOverlay/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -1,5 +1,7 @@
 extends Control
 
+signal retry
+
 var target: Vector2 = Vector2.ZERO
 var current_target: Vector2
 var player_position: Vector2
@@ -8,12 +10,11 @@ var player_position: Vector2
 var player_health : int
 var paused: bool = false
 var is_game_over: bool = false
-signal retry
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$GameOverOverlay.hide()
 	$PauseMenuOverlay.hide()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,27 +22,20 @@ func _process(delta):
 	if !is_game_over:
 		get_input()
 
-
 func _on_player_player_global_position(player_global_position: Vector2):
 	player_position = player_global_position
-	pass
 	
-
 func _on_delivery_spawn_navigation_target_spawn(target: Vector2):
 	current_target = target 
 	$NavigationArrow.self_modulate = Color.RED
 
-
 func _on_delivery_system_navigation_target(target: Vector2):
-	current_target = target  # Replace with function body.
+	current_target = target 
 	$NavigationArrow.self_modulate = Color.GREEN
-
 
 func _on_player_health_changed(health: int):
 	$LivesText.lives = health
 
-
-	
 func get_input():
 	if Input.is_action_just_pressed("escape"):
 		if !paused:
@@ -53,19 +47,15 @@ func get_input():
 			get_tree().paused = false
 			paused = false
 			$PauseMenuOverlay.hide()
-			
-
 
 func _on_continue_button_pressed():
 	get_tree().paused = false
 	paused = false
-	$PauseMenuOverlay.hide()
-	
+	$PauseMenuOverlay.hide()	
 
 func _on_quit_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/MainMenu/main_menu.tscn")
-
 
 func _on_retry_button_pressed():
 	emit_signal("retry")
@@ -80,7 +70,3 @@ func game_over():
 	$GameOverOverlay.show()
 	$GameOverOverlay/VBoxContainer/RetryButton.grab_focus()
 	$GameOverOverlay/GameOverJingle.play()
-	
-
-	
-	

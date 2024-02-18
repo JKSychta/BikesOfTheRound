@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dtvqyc34g0n52" path="res://Scenes/Player/player.tscn" id="1_hand0"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level01/Level01tscn.gd" id="1_qoov8"]
 [ext_resource type="PackedScene" uid="uid://bur4gce4cb4p3" path="res://Scenes/Level01 tilemap/level_tile_set.tscn" id="2_c2giq"]
-[ext_resource type="PackedScene" uid="uid://2qac47tfb0q3" path="res://Scenes/UI/user_interface.tscn" id="3_v54xb"]
+[ext_resource type="PackedScene" uid="uid://2qac47tfb0q3" path="res://Scenes/UI/UserInterface.tscn" id="3_v54xb"]
 [ext_resource type="Script" path="res://Scenes/Levels/Test Level/GameCountdownTimer.gd" id="4_2g4xm"]
 [ext_resource type="Script" path="res://Scenes/Levels/Test Level/DeliverySystem.gd" id="6_glxm8"]
 [ext_resource type="PackedScene" uid="uid://bbk50naeyyv56" path="res://Scenes/Levels/Level components/Delivery Spawn/DeliverySpawn.tscn" id="7_kautg"]
@@ -38,7 +38,7 @@ editor_draw_limits = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 
-[node name="User_Interface" parent="Player/CanvasLayer" instance=ExtResource("3_v54xb")]
+[node name="UserInterface" parent="Player/CanvasLayer" instance=ExtResource("3_v54xb")]
 metadata/_edit_vertical_guides_ = [8.0, 1144.0]
 metadata/_edit_horizontal_guides_ = [16.0]
 
@@ -57,39 +57,39 @@ script = ExtResource("6_glxm8")
 [node name="DeliverySpawn" parent="Delivery_System" groups=["DeliverySystem"] instance=ExtResource("7_kautg")]
 position = Vector2(84, -3)
 
-[node name="delivery_point" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+[node name="DeliveryPoint" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
 position = Vector2(500, -95)
 scale = Vector2(0.5, 0.5)
 
-[node name="delivery_point2" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+[node name="DeliveryPoint2" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
 position = Vector2(651, 400)
 scale = Vector2(0.5, 0.5)
 
-[node name="delivery_point3" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+[node name="DeliveryPoint3" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
 position = Vector2(-220, -122)
 scale = Vector2(0.5, 0.5)
 
-[node name="delivery_point4" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+[node name="DeliveryPoint4" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
 position = Vector2(164, 655)
 scale = Vector2(0.5, 0.5)
 
-[node name="delivery_point5" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+[node name="DeliveryPoint5" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
 position = Vector2(-472, -53)
 scale = Vector2(0.5, 0.5)
 
-[node name="delivery_point6" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+[node name="DeliveryPoint6" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
 position = Vector2(-423, 648)
 scale = Vector2(0.5, 0.5)
 
-[node name="delivery_point7" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+[node name="DeliveryPoint7" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
 position = Vector2(-455, 321)
 scale = Vector2(0.5, 0.5)
 
-[node name="delivery_point8" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+[node name="DeliveryPoint8" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
 position = Vector2(159, 291)
 scale = Vector2(0.5, 0.5)
 
-[node name="delivery_point9" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
+[node name="DeliveryPoint9" parent="Delivery_System" groups=["DeliveryPoints", "DeliverySystem"] instance=ExtResource("8_jebus")]
 position = Vector2(794, 44)
 scale = Vector2(0.5, 0.5)
 
@@ -142,12 +142,12 @@ position = Vector2(382, 406)
 stream = ExtResource("10_cshap")
 volume_db = -11.702
 
-[connection signal="healthChanged" from="Player" to="Player/CanvasLayer/User_Interface" method="_on_player_health_changed"]
+[connection signal="healthChanged" from="Player" to="Player/CanvasLayer/UserInterface" method="_on_player_health_changed"]
 [connection signal="packageDelivered" from="Player" to="GameCountdownTimer" method="_on_player_package_delivered"]
 [connection signal="playerDead" from="Player" to="." method="_on_player_player_dead"]
-[connection signal="player_global_position" from="Player" to="Player/CanvasLayer/User_Interface" method="_on_player_player_global_position"]
-[connection signal="retry" from="Player/CanvasLayer/User_Interface" to="." method="_on_user_interface_retry"]
+[connection signal="player_global_position" from="Player" to="Player/CanvasLayer/UserInterface" method="_on_player_player_global_position"]
+[connection signal="retry" from="Player/CanvasLayer/UserInterface" to="." method="_on_user_interface_retry"]
 [connection signal="timeout" from="GameCountdownTimer" to="." method="_on_game_countdown_timer_timeout"]
-[connection signal="navigationTarget" from="Delivery_System" to="Player/CanvasLayer/User_Interface" method="_on_delivery_system_navigation_target"]
+[connection signal="navigationTarget" from="Delivery_System" to="Player/CanvasLayer/UserInterface" method="_on_delivery_system_navigation_target"]
 [connection signal="deliveryPointSelect" from="Delivery_System/DeliverySpawn" to="Delivery_System" method="_on_delivery_spawn_delivery_point_select"]
-[connection signal="navigationTargetSpawn" from="Delivery_System/DeliverySpawn" to="Player/CanvasLayer/User_Interface" method="_on_delivery_spawn_navigation_target_spawn"]
+[connection signal="navigationTargetSpawn" from="Delivery_System/DeliverySpawn" to="Player/CanvasLayer/UserInterface" method="_on_delivery_spawn_navigation_target_spawn"]

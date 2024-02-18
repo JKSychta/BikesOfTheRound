@@ -8,13 +8,13 @@ var ui
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ui = get_parent().get_node("Player/CanvasLayer/User_Interface")
+	ui = get_parent().get_node("Player/CanvasLayer/UserInterface")
 	resetToDefault()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	ui.time_left.text = str(int(self.time_left))
-	if time_left < wait_time/3:
+	if time_left <= 10:
 		ui.time_left.modulate = Color.DARK_RED
 	else:
 		ui.time_left.modulate = Color.WHITE
