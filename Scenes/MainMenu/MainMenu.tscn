@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://hydamn8p3v03"]
 
-[ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_u5eok"]
-[ext_resource type="Texture2D" uid="uid://bdg6mdyimtlb1" path="res://Art/UI/Bikes of the round title screen.png" id="2_eqp5y"]
-[ext_resource type="Script" path="res://Scenes/MainMenu/HiScores.gd" id="3_l6x7r"]
+[ext_resource type="Script" path="res://Scenes/MainMenu/MainMenu.gd" id="1_qhlpm"]
+[ext_resource type="Texture2D" uid="uid://bdg6mdyimtlb1" path="res://Art/UI/Bikes of the round title screen.png" id="2_5afit"]
+[ext_resource type="Script" path="res://Scenes/MainMenu/HiScores.gd" id="3_kkovc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,12 +11,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_u5eok")
+script = ExtResource("1_qhlpm")
 metadata/_edit_vertical_guides_ = [574.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
-texture = ExtResource("2_eqp5y")
+texture = ExtResource("2_5afit")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -52,7 +52,7 @@ offset_bottom = 269.0
 grow_horizontal = 2
 scale = Vector2(2.22785, 2.22785)
 text = "hiscores"
-script = ExtResource("3_l6x7r")
+script = ExtResource("3_kkovc")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

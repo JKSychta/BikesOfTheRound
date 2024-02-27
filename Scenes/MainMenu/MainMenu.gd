@@ -16,10 +16,12 @@ func _on_start_button_pressed():
 func _on_quit_button_pressed():
 	get_tree().quit()
 
-## set_scores loads scores from the score JSON file. It then parsers the data into an array and places the values into HiScores label.
+## set_scores loads scores from the score file. It then parsers the data into an array and places the values into HiScores label.
 func set_scores():
 	var score_string: String
 	for i in len(Global.loaded_scores["scores"]):
 		score_string += str(i+1,". ", Global.loaded_scores["scores"][i], "\n")
 	$HiScores.text = str("Hiscores\n", score_string)
+
+
 

@@ -15,6 +15,7 @@ func game_start():
 	get_tree().call_group("EnemySpawners", "spawn")
 	
 func game_over():
+	$Player/CanvasLayer/UserInterface.game_over()
 	spawner_kill()
 	$Player.holding_delivery = false
 	$Player.velocity = Vector2.ZERO
@@ -23,7 +24,7 @@ func game_over():
 
 func _on_game_countdown_timer_timeout():
 	game_over()
-	$Player/CanvasLayer/UserInterface.game_over()
+
 	
 func position_the_player():
 	$Player.position = $PlayerSpawn.position
@@ -33,7 +34,7 @@ func position_the_player():
 
 func _on_player_player_dead():
 	game_over()
-	$Player/CanvasLayer/UserInterface.game_over()
+
 	
 func spawner_kill():
 	get_tree().call_group("EnemySpawners", "kill_all")

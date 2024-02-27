@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Bikes of the Round Test"
+config/name="Bikes of the Round"
 config/description="Pinnacle of high-speed arcade action!"
-run/main_scene="res://Scenes/MainMenu/main_menu.tscn"
+run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
